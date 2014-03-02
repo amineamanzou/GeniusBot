@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
-    <State id="0">
+    <Step id="0">
         <message>Salut, mon nom est Genius. Comment tu t'appelles ?</message>
-    </State>
+        <keywords>
+            <keyword target="2" variable="name">{Regex}</keyword>
+            <keyword target="2" variable="name">{OtherRegex}</keyword>
+        </keywords>
+    </Step>
 
-    <State id="1">
+    <Step id="1">
         <message>De quoi as-tu besoin ?</message>
-    </State>
+    </Step>
 
-    <State id="2">
+    <Step id="2">
         <message>Salut [name], comment vas tu ?</message>
-    </State>
+    </Step>
     
     <MessagesInvalid>
         <message>Oups, je n'ai pas compris.</message>
