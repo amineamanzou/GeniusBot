@@ -1,4 +1,7 @@
-package miagesorbonne.geniusbot;
+package miagesorbonne.geniusbot.view;
+
+import miagesorbonne.geniusbot.entity.Bot;
+import miagesorbonne.geniusbot.entity.Parser;
 
 /**
  * Main class where the interface is initialized
@@ -121,7 +124,6 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.getAccessibleContext().setAccessibleName("Genius Chat Bot");
         jPanel1.getAccessibleContext().setAccessibleDescription("");
 
         pack();

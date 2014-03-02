@@ -1,4 +1,4 @@
-package miagesorbonne.geniusbot;
+package miagesorbonne.geniusbot.entity;
 
 import java.util.ArrayList;
 

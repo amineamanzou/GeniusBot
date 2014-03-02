@@ -1,4 +1,4 @@
-package miagesorbonne.geniusbot;
+package miagesorbonne.geniusbot.entity;
 
 /**
  * Entity Class that will manage Bot actions
