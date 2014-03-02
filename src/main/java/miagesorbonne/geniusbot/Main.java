@@ -1,27 +1,35 @@
 package miagesorbonne.geniusbot;
 
 /**
- *
+ * Main class where the interface is initialized
+ * 
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */
 public class Main extends javax.swing.JFrame {
 
     private Bot bot;
 
-    // default constructor
+    /**
+     * Default Constructor
+     */
     public Main() {
         initComponents();
 
-        // construct a new bot
+        // Construct a new bot
         bot = new Bot();
 
-        // display the default message
+        // Initialising the parser
+        Parser data = new Parser();
+        
+        // Display a default message
         txtHistory.setText("Genius : " + "Hello Sire !");
 
     }
 
-    // display bot response in the text area
-    private void displayResponse(String message) {
+    /**
+     * Display bot response in the text area
+     */
+    private void talk(String message) {
         txtHistory.setText(txtHistory.getText() + "\nGenius : " + message);
     }
 
@@ -125,18 +133,16 @@ public class Main extends javax.swing.JFrame {
         // display users message
         txtHistory.setText(txtHistory.getText() + "\nYou: " + txtMessage.getText() + "\n");
 
-        // send the message to the bot and get the bot response
+        // Send the message to the bot and get the bot response
         String response = "Received";
-
-        // if the response is not empty display it
         if (response.length() > 0) {
-            displayResponse(response);
+            talk(response);
         }
 
-        // display new state message
-        displayResponse(response);
+        // Display new question
+        talk(response);
 
-        // clear the message textbox
+        // Clear textbox
         txtMessage.setText("");
     }//GEN-LAST:event_onSend
 
