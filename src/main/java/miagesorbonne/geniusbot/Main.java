@@ -15,11 +15,10 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
 
-        // Construct a new bot
-        bot = new Bot();
-
         // Initialising the parser
         Parser data = new Parser();
+        // Construct a new bot
+        bot = new Bot("0",data);
         
         // Display a default message
         txtHistory.setText("Genius : " + "Hello Sire !");
