@@ -10,6 +10,12 @@ release.properties
 ##############
 *.class
 
+# Config files #
+################
+# config.xml
+## Has to be uncommented at the end of developement 
+## or config.sample.xml has to be created as a model
+
 # Mobile Tools for Java (J2ME) #
 ################################
 .mtj.tmp/

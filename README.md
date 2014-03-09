@@ -19,3 +19,14 @@ Installation
 ============
 
 Launch the project as any maven project and edit it with Netbeans or Eclipse IDE.
+
+Configuration
+=============
+
+All what you have to edit is the config.xml file. 
+You can add a class plugin implementing the API to add functionnality to the bot.
+
+Miscallenious
+=============
+
+Genius Bot can learn from what you say to him.
