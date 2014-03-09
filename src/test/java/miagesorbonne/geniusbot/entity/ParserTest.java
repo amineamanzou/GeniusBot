@@ -6,6 +6,7 @@
 
 package miagesorbonne.geniusbot.entity;
 
+import miagesorbonne.geniusbot.controller.Parser;
 import junit.framework.TestCase;
 
 /**

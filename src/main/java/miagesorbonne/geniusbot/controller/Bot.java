@@ -1,4 +1,4 @@
-package miagesorbonne.geniusbot.entity;
+package miagesorbonne.geniusbot.controller;
 
 /**
  * Entity Class that will manage Bot actions
@@ -8,6 +8,7 @@ package miagesorbonne.geniusbot.entity;
 public class Bot {
     
     // Default Bot Situation
+    Integer id;
     String Step = "0";
     Parser parser;
     
@@ -19,6 +20,22 @@ public class Bot {
         this.parser = parser;
     }
 
+    /**
+     * Get ths of the bot
+     * @return 
+     */
+    public Integer getId(){
+        return this.id;
+    }
+    
+    /**
+     * Set current id of the bot
+     * @param id 
+     */
+    public void setId(Integer id){
+        this.id = id;
+    }
+    
     /**
      * Get current step of the bot
      * @return 
@@ -50,7 +67,5 @@ public class Bot {
     public void setParser(Parser parser) {
         this.parser = parser;
     }
-    
-    
-    
+      
 }

@@ -1,7 +1,7 @@
 package miagesorbonne.geniusbot.view;
 
-import miagesorbonne.geniusbot.entity.Bot;
-import miagesorbonne.geniusbot.entity.Parser;
+import miagesorbonne.geniusbot.controller.Bot;
+import miagesorbonne.geniusbot.controller.Parser;
 
 /**
  * Main class where the interface is initialized
@@ -133,7 +133,9 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    // on send event when user clicks on the send button or hit the enter key
+    /**
+     * OnSend event when user clicks on the send button or hit the enter key
+     */
     private void onSend(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onSend
         // display users message
         txtHistory.setText(txtHistory.getText() + "\nYou: " + txtMessage.getText() + "\n");

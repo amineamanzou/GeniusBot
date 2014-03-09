@@ -1,4 +1,4 @@
-package miagesorbonne.geniusbot.entity;
+package miagesorbonne.geniusbot.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
