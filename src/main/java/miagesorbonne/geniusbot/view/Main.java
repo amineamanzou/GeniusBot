@@ -144,17 +144,17 @@ public class Main extends javax.swing.JFrame {
     private void onSend(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onSend
         // display users message
         txtHistory.setText(txtHistory.getText() + "\nYou: " + txtMessage.getText() + "\n");
+        
+        // send the message to the bot and get the bot response
+        String answer = controller.send(txtMessage.getText());
 
-        // Send the message to the bot and get the bot response
-        String response = "Received";
-        if (response.length() > 0) {
-            talk(response);
+        if (answer.length() > 0) {
+            talk(answer);
         }
 
-        // Display new question
-        talk(response);
+        // display new state message
+        //addBotText(bot.getMessage());
 
-        // Clear textbox
         txtMessage.setText("");
     }//GEN-LAST:event_onSend
 

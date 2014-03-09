@@ -19,6 +19,8 @@ public class Keyword implements Entity {
     public String variable = "";
     // The value if the name of the variable is set
     public String variableValue = "";
+    
+    public int points = 0;
 
     /**
      * Default constructor
