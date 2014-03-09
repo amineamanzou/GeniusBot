@@ -1,6 +1,7 @@
 package miagesorbonne.geniusbot.view;
 
 import miagesorbonne.geniusbot.controller.Bot;
+import miagesorbonne.geniusbot.controller.BotController;
 import miagesorbonne.geniusbot.controller.Parser;
 
 /**
@@ -11,6 +12,7 @@ import miagesorbonne.geniusbot.controller.Parser;
 public class Main extends javax.swing.JFrame {
 
     private Bot bot;
+    private BotController controller;
 
     /**
      * Default Constructor
@@ -21,10 +23,13 @@ public class Main extends javax.swing.JFrame {
         // Initialising the parser
         Parser data = new Parser();
         // Construct a new bot
-        bot = new Bot("0",data);
+        this.bot = new Bot("0");
+        
+        // Construct the bot controller
+        this.controller = new BotController(bot,data);
         
         // Display a default message
-        txtHistory.setText("Genius : " + "Hello Sire !");
+        txtHistory.setText("Genius : " + controller.getMessage());
 
     }
 

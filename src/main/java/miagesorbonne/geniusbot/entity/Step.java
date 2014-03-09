@@ -1,6 +1,7 @@
 package miagesorbonne.geniusbot.entity;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * A step is a state where the automate will be 
@@ -68,7 +69,16 @@ public class Step implements Entity {
     public ArrayList<String> getMessages() {
         return messages;
     }
-
+    
+    /**
+     * Get a Random message of the current step
+     * @return message
+     */
+    public String getMessage() {
+        Random gen = new Random();
+        return "Bonjour Bonjour ... Je suis encore en cour de construction";//messages.get(gen.nextInt(messages.size()));
+    }
+    
     /**
      * Set the messages to answer in this step
      * @param messages 

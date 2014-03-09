@@ -3,8 +3,8 @@
     <Step id="0">
         <message>Salut, mon nom est Genius. Comment tu t'appelles ?</message>
         <keywords>
-            <keyword target="2" variable="name">{Regex}</keyword>
-            <keyword target="2" variable="name">{OtherRegex}</keyword>
+            <keyword target="2" variable="name">.*nom est ([a-zA-z]+).*</keyword>
+            <keyword target="2" variable="name">([a-zA-Z ]+)</keyword>
         </keywords>
     </Step>
 

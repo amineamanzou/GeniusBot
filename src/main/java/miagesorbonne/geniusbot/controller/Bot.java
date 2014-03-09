@@ -10,14 +10,12 @@ public class Bot {
     // Default Bot Situation
     Integer id;
     String Step = "0";
-    Parser parser;
     
     /**
      * Default constructor
      */
-    public Bot(String Step, Parser parser){
+    public Bot(String Step){
         this.Step = Step;
-        this.parser = parser;
     }
 
     /**
@@ -50,22 +48,6 @@ public class Bot {
      */
     public void setStep(String Step) {
         this.Step = Step;
-    }
-
-    /**
-     * Get the associated parser to fetch data
-     * @return 
-     */
-    public Parser getParser() {
-        return parser;
-    }
-
-    /**
-     * Set the parser that will fetch data
-     * @param parser 
-     */
-    public void setParser(Parser parser) {
-        this.parser = parser;
     }
       
 }

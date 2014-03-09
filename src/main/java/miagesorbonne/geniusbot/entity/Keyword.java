@@ -28,7 +28,6 @@ public class Keyword implements Entity {
      * @param className
      * @param arg
      * @param variable
-     * @param points 
      */
     public Keyword(String keyword, String target, String className, String arg, String variable) {
         this.id = keyword;
@@ -53,6 +52,11 @@ public class Keyword implements Entity {
      */
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return  keyword ;
     }
     
 }
