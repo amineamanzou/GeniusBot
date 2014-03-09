@@ -133,7 +133,7 @@ public class Parser {
                 ArrayList keywords = getKeywords(el);
 
                 // construct a new State object
-                Step state = new Step(id, messages, keywords);
+                Step state = new Step(id, keywords, messages);
 
                 stepCounter ++;
 

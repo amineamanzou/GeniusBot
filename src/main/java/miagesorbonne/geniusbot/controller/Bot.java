@@ -9,13 +9,13 @@ public class Bot {
     
     // Default Bot Situation
     Integer id;
-    String Step = "0";
+    String step = "0";
     
     /**
      * Default constructor
      */
-    public Bot(String Step){
-        this.Step = Step;
+    public Bot(String step){
+        this.step = step;
     }
 
     /**
@@ -39,7 +39,7 @@ public class Bot {
      * @return 
      */
     public String getStep() {
-        return Step;
+        return step;
     }
     
     /**
@@ -47,7 +47,7 @@ public class Bot {
      * @param Step 
      */
     public void setStep(String Step) {
-        this.Step = Step;
+        this.step = Step;
     }
       
 }

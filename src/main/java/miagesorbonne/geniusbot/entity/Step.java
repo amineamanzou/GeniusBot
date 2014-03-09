@@ -76,7 +76,8 @@ public class Step implements Entity {
      */
     public String getMessage() {
         Random gen = new Random();
-        return "Bonjour Bonjour ... Je suis encore en cour de construction";//messages.get(gen.nextInt(messages.size()));
+        //System.out.println(messages.get(gen.nextInt(messages.size())));
+        return messages.get(gen.nextInt(messages.size()));
     }
     
     /**
