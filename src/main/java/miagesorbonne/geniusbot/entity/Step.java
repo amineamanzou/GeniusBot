@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * 
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */
-public class Step {
+public class Step implements Entity {
     
     private String id = "";
     private ArrayList keywords;
