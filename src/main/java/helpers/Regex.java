@@ -10,6 +10,12 @@ import java.util.regex.Pattern;
  */
 public class Regex {
 
+    /**
+     * Match a pattern in a keyword entry in the file config
+     * @param pattern
+     * @param keyword
+     * @return The matched String
+     */
     public static String match(String pattern, String keyword){
         Pattern p = Pattern.compile(pattern.toLowerCase());
         Matcher m = p.matcher(keyword.toLowerCase());
@@ -19,6 +25,12 @@ public class Regex {
         return "";
     }
 
+    /**
+     * Clear the matcher
+     * 
+     * @param text
+     * @return String
+     */
     public static String clear(String text){
         Pattern pattern = Pattern.compile("\\[.*\\]");
 
@@ -26,4 +38,5 @@ public class Regex {
         Matcher matcher = pattern.matcher(text);
         return matcher.replaceAll("");
     }
+    
 }

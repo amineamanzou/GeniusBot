@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package miagesorbonne.geniusbot.entity;
 
 /**
@@ -12,7 +6,7 @@ package miagesorbonne.geniusbot.entity;
  */
 public class Keyword implements Entity {
 
-    public String id;
+    public String id = "";
     public String keyword = "";
     // The target step on the config xml
     public String target = "";
@@ -37,6 +31,7 @@ public class Keyword implements Entity {
      * @param points 
      */
     public Keyword(String keyword, String target, String className, String arg, String variable) {
+        this.id = keyword;
         this.keyword = keyword;
         this.target = target;
         this.className = className;
