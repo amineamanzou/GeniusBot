@@ -7,6 +7,7 @@ import miagesorbonne.geniusbot.controller.Parser;
 /**
  * Main class where the interface is initialized
  * 
+ * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */
 public class Main extends javax.swing.JFrame {

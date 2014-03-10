@@ -1,7 +1,9 @@
 package miagesorbonne.geniusbot.entity;
 
 /**
- *
+ * A keyword is a possible answer from the user to be parsed
+ * 
+ * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */
 public class Keyword implements Entity {

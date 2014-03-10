@@ -2,6 +2,8 @@ package helpers;
 
 /**
  * Console Logger for logs on the console
+ * 
+ * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amanzou Amine <amineamanzou@gmail.com>
  */
 public class ConsoleLog {

@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 /**
  * Regex helper give some methods to help parsing variable in the XML
  * 
+ * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */
 public class Regex {

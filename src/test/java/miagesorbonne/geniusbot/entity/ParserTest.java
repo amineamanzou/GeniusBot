@@ -10,7 +10,9 @@ import miagesorbonne.geniusbot.controller.Parser;
 import junit.framework.TestCase;
 
 /**
- *
+ * Unit Test for the Parser
+ * 
+ * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */
 public class ParserTest extends TestCase {

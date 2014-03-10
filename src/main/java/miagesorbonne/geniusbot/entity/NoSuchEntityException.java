@@ -1,7 +1,9 @@
 package miagesorbonne.geniusbot.entity;
 
 /**
- *
+ * Thrown when the entity class doesn't exist
+ * 
+ * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amanzou Amine <amineamanzou@gmail.com>
  */
 public class NoSuchEntityException extends Exception{

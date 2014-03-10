@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 
 /**
- *
+ * Unit Test for Step class
+ * 
+ * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */
 public class StepTest extends TestCase {
