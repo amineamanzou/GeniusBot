@@ -19,6 +19,8 @@ public class Keyword implements Entity {
     public String variable = "";
     // The value if the name of the variable is set
     public String variableValue = "";
+    // If the Step could learn something to the automate
+    public String learn = "";
     
     public int points = 0;
 
@@ -31,13 +33,15 @@ public class Keyword implements Entity {
      * @param arg
      * @param variable
      */
-    public Keyword(String keyword, String target, String className, String arg, String variable) {
+    public Keyword(String keyword, String target, String className, String arg, String variable, int points, String learn) {
         this.id = keyword;
         this.keyword = keyword;
         this.target = target;
         this.className = className;
         this.arg = arg;
         this.variable = variable;
+        this.points = points;
+        this.learn = learn;
     }
 
     /**
@@ -58,7 +62,7 @@ public class Keyword implements Entity {
 
     @Override
     public String toString() {
-        return  keyword ;
+        return keyword ;
     }
     
 }

@@ -177,8 +177,9 @@ public class Parser {
                 }catch (Exception e){
                     
                 }
-
-                //String learn = el.getAttribute("learn");
+                
+                // If the bot can learn something trought the step
+                String learn = el.getAttribute("learn");
                 // Separating keyword with comma
                 String[] words = wordTag.split(",");
 
@@ -189,7 +190,7 @@ public class Parser {
                     word = word.trim();
                     
                     // Building a new keyword
-                    Keyword keyword = new Keyword(word, target, className, arg, variable);//, points, learn );
+                    Keyword keyword = new Keyword(word, target, className, arg, variable, points, learn );
 
                     // Adding the keyword to keywords array list
                     keywords.add(keyword);

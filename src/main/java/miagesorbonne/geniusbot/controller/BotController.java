@@ -72,12 +72,12 @@ public class BotController {
      * @return
      */
     public String replaceMatches(String text) {
-        // replace variables within dictionary in the text
+        // Replacing variables by dictionary in the text
         for (Map.Entry<String, String> entry : regex.entrySet()) {
             text = text.replaceAll("\\[" + entry.getKey() + "\\]", entry.getValue());
         }
 
-        // remove non used variables tags
+        // Removing non used tags variables
         return Regex.clear(text);
     }
 
@@ -96,15 +96,19 @@ public class BotController {
             bot.step = "1";
         }
 
+        // Assciate the keyword with the given message
         Keyword match = parse(message, step.getKeywords());
 
+        // If no one was matched : give invalid answer
         if (match == null) {
             answer = parser.getInvalidAnswer();
         } else {
+            // Getting the new step and return the new answer
             if (answer.length() == 0) {
                 bot.step = match.target;
                 step = parser.getStep(bot.step);
 
+                // If it's the last step of a situation
                 if (step.getKeywords().isEmpty()) {
                     answer = this.getMessage();
                     bot.step = "1";

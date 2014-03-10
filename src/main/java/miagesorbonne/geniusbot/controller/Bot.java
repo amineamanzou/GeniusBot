@@ -13,6 +13,8 @@ public class Bot {
     
     /**
      * Default constructor
+     * 
+     * @param step
      */
     public Bot(String step){
         this.step = step;
@@ -20,7 +22,7 @@ public class Bot {
 
     /**
      * Get ths of the bot
-     * @return 
+     * @return id
      */
     public Integer getId(){
         return this.id;
@@ -36,7 +38,7 @@ public class Bot {
     
     /**
      * Get current step of the bot
-     * @return 
+     * @return step
      */
     public String getStep() {
         return step;
@@ -44,10 +46,10 @@ public class Bot {
     
     /**
      * Set current step of the bot
-     * @param Step 
+     * @param step 
      */
-    public void setStep(String Step) {
-        this.step = Step;
+    public void setStep(String step) {
+        this.step = step;
     }
       
 }
