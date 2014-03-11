@@ -10,10 +10,68 @@
 
     <Step id="1">
         <message>De quoi as-tu besoin ?</message>
+        <keywords>
+            <keyword target="1">*</keyword>
+        </keywords>
     </Step>
 
     <Step id="2">
         <message>Salut [name], comment vas tu ?</message>
+        <keywords>
+            <keyword target="3">Bien et toi ?,Cool,Sa roule</keyword>
+            <keyword target="4">Bof,pas trop,mal,triste</keyword>
+            <keyword target="5">Sa va,normal</keyword>
+            <keyword target="6">sais pas,sais rien</keyword>
+        </keywords>
+    </Step>
+    
+    <Step id="3">
+        <message>Super !</message>
+        <message>Cool !</message>
+        <message>Content pour toi :)</message>
+        <keywords>
+            <keyword target="1">*</keyword>
+        </keywords>
+    </Step>
+    
+    <Step id="4">
+        <message>:( Oh tout le monde est triste ou quoi ?</message>
+        <message>J'espère que sa ira mieux pour toi ;)</message>
+        <keywords>
+            <keyword target="1">*</keyword>
+        </keywords>
+    </Step>
+    
+    <Step id="5">
+        <message>Ok</message>
+        <message>Peut être une blague pour que tu me dises je vais bien ?</message>
+        <keywords>
+            <keyword target="1">*</keyword>
+            <keyword target="7">oui</keyword>
+        </keywords>
+    </Step>
+    
+    <Step id="6">
+        <message>Il m'arrive de me sentir perdu aussi. (Non je rigole)</message>
+        <message>www.perdu.com ?</message>
+        <keywords>
+            <keyword target="1">*</keyword>
+        </keywords>
+    </Step>
+    
+    <Step id="7">
+        <message>Alors c'est toto euh ... il euh ... Faudrais peut être me configurer un plugin qui génère des blagues ?</message>
+        <keywords>
+            <keyword target="1">*</keyword>
+            <keyword target="8">oui, surement, probablement, daccord</keyword>
+        </keywords>
+    </Step>
+    
+    <Step id="8">
+        <message>Sinon va sur www.blague.com =D</message>
+        <keywords>
+            <keyword target="1">*</keyword>
+        </keywords>
     </Step>
     
     <MessagesInvalid>

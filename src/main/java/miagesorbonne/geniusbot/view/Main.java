@@ -154,7 +154,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         // display new state message
-        //addBotText(bot.getMessage());
+        talk(controller.getMessage());
 
         txtMessage.setText("");
     }//GEN-LAST:event_onSend
