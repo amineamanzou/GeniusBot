@@ -26,12 +26,10 @@ public class StepTest extends TestCase {
      */
     public void testGetId() {
         System.out.println("getId");
-        Step instance = null;
-        String expResult = "";
+        Step instance = new Step("1",null,null);
+        String expResult = "1";
         String result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -39,11 +37,10 @@ public class StepTest extends TestCase {
      */
     public void testSetId() {
         System.out.println("setId");
-        String id = "";
-        Step instance = null;
+        String id = "2";
+        Step instance = new Step("1",null,null);
         instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getId(),id);
     }
 
     /**
@@ -51,12 +48,12 @@ public class StepTest extends TestCase {
      */
     public void testGetKeywords() {
         System.out.println("getKeywords");
-        Step instance = null;
-        ArrayList expResult = null;
-        ArrayList result = instance.getKeywords();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "Keyword";
+        ArrayList<String> keywords = new ArrayList(1);
+        keywords.add(expResult);
+        Step instance = new Step("1",keywords,null);
+        ArrayList<String> result = instance.getKeywords();
+        assertEquals(expResult, result.get(0));
     }
 
     /**
@@ -64,11 +61,12 @@ public class StepTest extends TestCase {
      */
     public void testSetKeywords() {
         System.out.println("setKeywords");
-        ArrayList keywords = null;
-        Step instance = null;
+        String expResult = "Keyword";
+        ArrayList<String> keywords = new ArrayList(1);
+        keywords.add(expResult);
+        Step instance = new Step("1",null,null);
         instance.setKeywords(keywords);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult,instance.getKeywords().get(0));
     }
 
     /**
@@ -76,12 +74,12 @@ public class StepTest extends TestCase {
      */
     public void testGetMessages() {
         System.out.println("getMessages");
-        Step instance = null;
-        ArrayList<String> expResult = null;
+        String expResult = "Message";
+        ArrayList<String> messages = new ArrayList(1);
+        messages.add(expResult);
+        Step instance = new Step("1",null,messages);
         ArrayList<String> result = instance.getMessages();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result.get(0));
     }
 
     /**
@@ -89,11 +87,12 @@ public class StepTest extends TestCase {
      */
     public void testSetMessages() {
         System.out.println("setMessages");
-        ArrayList<String> messages = null;
-        Step instance = null;
+        String expResult = "Message";
+        ArrayList<String> messages = new ArrayList(1);
+        messages.add(expResult);
+        Step instance = new Step("1",null,null);
         instance.setMessages(messages);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult,instance.getMessages().get(0));
     }
     
 }

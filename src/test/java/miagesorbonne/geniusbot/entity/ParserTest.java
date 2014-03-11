@@ -8,6 +8,7 @@ package miagesorbonne.geniusbot.entity;
 
 import miagesorbonne.geniusbot.controller.Parser;
 import junit.framework.TestCase;
+import static org.junit.Assert.assertArrayEquals;
 
 /**
  * Unit Test for the Parser
@@ -27,12 +28,10 @@ public class ParserTest extends TestCase {
     public void testGetInvalidAnswer() {
         System.out.println("getInvalidAnswer");
         Parser instance = new Parser();
-        String expResult = "";
+        String expResult = "Oups, je n'ai pas compris.";
         String result = instance.getInvalidAnswer();
         System.out.println(result);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
