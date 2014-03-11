@@ -8,6 +8,7 @@ package miagesorbonne.geniusbot.entity;
 
 import java.util.ArrayList;
 import junit.framework.TestCase;
+import org.junit.Test;
 
 /**
  * Unit Test for Step class
@@ -24,6 +25,7 @@ public class StepTest extends TestCase {
     /**
      * Test of getId method, of class Step.
      */
+    @Test
     public void testGetId() {
         System.out.println("getId");
         Step instance = new Step("1",null,null);
@@ -35,6 +37,7 @@ public class StepTest extends TestCase {
     /**
      * Test of setId method, of class Step.
      */
+    @Test
     public void testSetId() {
         System.out.println("setId");
         String id = "2";
@@ -46,6 +49,7 @@ public class StepTest extends TestCase {
     /**
      * Test of getKeywords method, of class Step.
      */
+    @Test
     public void testGetKeywords() {
         System.out.println("getKeywords");
         String expResult = "Keyword";
@@ -59,6 +63,7 @@ public class StepTest extends TestCase {
     /**
      * Test of setKeywords method, of class Step.
      */
+    @Test
     public void testSetKeywords() {
         System.out.println("setKeywords");
         String expResult = "Keyword";
@@ -72,6 +77,7 @@ public class StepTest extends TestCase {
     /**
      * Test of getMessages method, of class Step.
      */
+    @Test
     public void testGetMessages() {
         System.out.println("getMessages");
         String expResult = "Message";
@@ -85,6 +91,7 @@ public class StepTest extends TestCase {
     /**
      * Test of setMessages method, of class Step.
      */
+    @Test
     public void testSetMessages() {
         System.out.println("setMessages");
         String expResult = "Message";

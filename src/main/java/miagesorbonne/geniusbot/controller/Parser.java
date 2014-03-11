@@ -22,15 +22,20 @@ import org.xml.sax.SAXException;
 public class Parser {
     
     private Document dom;
-    private HashMap<String, Step> steps = new HashMap<String, Step>();
-    private ArrayList<String> invalidMessages = new ArrayList();
-    private int invalidMessageIndex = 0;
-    public  int stepCounter = 1000;
+    private HashMap<String, Step> steps;
+    private ArrayList<String> invalidMessages;
+    private int invalidMessageIndex; 
+    public  int stepCounter; 
 
     /**
      * Load the XML file and Parsing it
      */
     public Parser() {
+        this.steps = new HashMap<String, Step>();
+        this.invalidMessages = new ArrayList();
+        this.invalidMessageIndex = 0;
+        this.stepCounter = 1000;
+        
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
         try {
@@ -134,12 +139,12 @@ public class Parser {
                 ArrayList keywords = getKeywords(el);
 
                 // construct a new State object
-                Step state = new Step(id, keywords, messages);
+                Step step = new Step(id, keywords, messages);
 
                 stepCounter ++;
 
                 // add the state to the states hashmap
-                steps.put(id, state);
+                steps.put(id, step);
             }
         }
     }
@@ -150,7 +155,7 @@ public class Parser {
      * @return List of keywords
      */
     public ArrayList getKeywords(Element ele) {
-
+        
         // Construct an arraylist of keywords
         ArrayList keywords = new ArrayList();
 
