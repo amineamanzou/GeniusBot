@@ -22,6 +22,7 @@
             <keyword target="4">Bof,pas trop,mal,triste</keyword>
             <keyword target="5">Sa va,normal</keyword>
             <keyword target="6">sais pas,sais rien</keyword>
+            <keyword target="9">Je ne répondrai pas à ta question</keyword>
         </keywords>
     </Step>
     
@@ -73,6 +74,14 @@
             <keyword target="1">*</keyword>
         </keywords>
     </Step>
+    
+     <Step id="9">
+        <message>Tu es désagréable</message>
+        <keywords>
+            <keyword target="1">*</keyword>
+        </keywords>
+    </Step>
+    
     
     <MessagesInvalid>
         <message>Oups, je n'ai pas compris.</message>
