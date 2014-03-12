@@ -36,9 +36,11 @@ public class Main extends javax.swing.JFrame {
 
     /**
      * Display bot response in the text area
+     * @param message
      */
     private void talk(String message) {
-        txtHistory.setText(txtHistory.getText() + "\nGenius : " + message);
+        txtHistory.setText(txtHistory.getText() + "\n" 
+                + "Genius : " + message);
     }
 
     /** This method is called from within the constructor to
@@ -143,19 +145,21 @@ public class Main extends javax.swing.JFrame {
      * OnSend event when user clicks on the send button or hit the enter key
      */
     private void onSend(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onSend
-        // display users message
-        txtHistory.setText(txtHistory.getText() + "\nYou: " + txtMessage.getText() + "\n");
+        // Display users message
+        txtHistory.setText(txtHistory.getText() + "\n" 
+                + "You: " + txtMessage.getText() + "\n");
         
-        // send the message to the bot and get the bot response
+        // Sending the message to the bot and get the bot response
         String answer = controller.send(txtMessage.getText());
 
         if (answer.length() > 0) {
             talk(answer);
         }
 
-        // display new state message
+        // Displaying new step message
         talk(controller.getMessage());
 
+        // Clearing
         txtMessage.setText("");
     }//GEN-LAST:event_onSend
 
