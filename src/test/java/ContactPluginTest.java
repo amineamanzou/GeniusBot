@@ -45,9 +45,9 @@ public class ContactPluginTest {
     @Test
     public void testFindByName() {
         System.out.println("findByName");
-        String name = "alex";
+        String name = "Amine";
         ContactPlugin instance = new ContactPlugin();
-        String expResult = "ok";
+        String expResult = "";
         String result = instance.findByName(name);
         assertEquals(expResult, result);
         
