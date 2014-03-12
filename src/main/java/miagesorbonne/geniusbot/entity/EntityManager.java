@@ -5,6 +5,7 @@ import java.util.List;
 /**
  * Entity manager interface
  * 
+ * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
  * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amanzou Amine <amineamanzou@gmail.com>
  * @param <E>

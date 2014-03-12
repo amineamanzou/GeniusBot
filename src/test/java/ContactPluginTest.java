@@ -12,8 +12,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author alexandreleboucher
+ * JUnit Test for Contact Plugin
+ * 
+ * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
+ * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
+ * @author Amine Amanzou <amineamanzou@gmail.com>
  */
 public class ContactPluginTest {
     

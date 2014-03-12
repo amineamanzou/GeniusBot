@@ -11,8 +11,9 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 /**
- * Unit Test for Step class
+ * JUnit Test for Step class
  * 
+ * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
  * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */

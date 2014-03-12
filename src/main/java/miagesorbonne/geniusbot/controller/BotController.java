@@ -16,6 +16,7 @@ import miagesorbonne.geniusbot.entity.Step;
  * Controlle the Entity and handle the software intelligence between
  * model and view layer of the application
  * 
+ * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
  * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */

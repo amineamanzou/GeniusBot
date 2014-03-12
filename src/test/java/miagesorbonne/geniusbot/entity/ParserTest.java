@@ -13,8 +13,9 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 /**
- * Unit Test for the Parser
+ * JUnit Test for the Parser
  * 
+ * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
  * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */

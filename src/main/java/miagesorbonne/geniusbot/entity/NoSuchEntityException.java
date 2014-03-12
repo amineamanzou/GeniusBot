@@ -3,6 +3,7 @@ package miagesorbonne.geniusbot.entity;
 /**
  * Thrown when the entity class doesn't exist
  * 
+ * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
  * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amanzou Amine <amineamanzou@gmail.com>
  */

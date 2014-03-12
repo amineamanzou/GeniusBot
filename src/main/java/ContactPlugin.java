@@ -1,12 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
- * @author alexandreleboucher
+ * Contact Plugin that add contact management functionnality
+ * to Genius.
+ * 
+ * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
+ * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
+ * @author Amine Amanzou <amineamanzou@gmail.com>
  */
 public class ContactPlugin {
 

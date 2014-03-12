@@ -16,6 +16,7 @@ import org.xml.sax.SAXException;
 /**
  * Parser that will analyze the message and math regex
  * 
+ * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
  * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */

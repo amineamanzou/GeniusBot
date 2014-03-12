@@ -3,6 +3,7 @@ package miagesorbonne.geniusbot.controller;
 /**
  * Entity Class that will manage Bot actions
  * 
+ * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
  * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */
