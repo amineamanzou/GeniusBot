@@ -1,4 +1,4 @@
-package miagesorbonne.geniusbot.view;
+
 
 import miagesorbonne.geniusbot.plugins.CalendarPlugin;
 

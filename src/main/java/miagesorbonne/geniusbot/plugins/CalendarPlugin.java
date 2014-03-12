@@ -18,7 +18,7 @@ import java.util.Arrays;
  */
 public class CalendarPlugin {
 
-    String csvFile = "./src/main/java/miagesorbonne/geniusbot/plugins/calendar/calendar.csv";
+    String csvFile = "./src/main/java/calendar.csv";
     BufferedReader br;
     String line = "";
     String splitBy = ";";

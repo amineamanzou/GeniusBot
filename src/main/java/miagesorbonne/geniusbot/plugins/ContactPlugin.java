@@ -1,3 +1,5 @@
+package miagesorbonne.geniusbot.plugins;
+
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
