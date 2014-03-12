@@ -1,6 +1,6 @@
 package miagesorbonne.geniusbot.view;
 
-import miagesorbonne.geniusbot.plugins.calendar.CalendarPlugin;
+import miagesorbonne.geniusbot.plugins.CalendarPlugin;
 
 public class MainCalendar {
 
@@ -9,6 +9,5 @@ public class MainCalendar {
         CalendarPlugin test = new CalendarPlugin();
         test.read();
         System.out.println("FIN");
-        test.test();
     }
 }

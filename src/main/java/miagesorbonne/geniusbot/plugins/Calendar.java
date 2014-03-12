@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package miagesorbonne.geniusbot.plugins.calendar;
+package miagesorbonne.geniusbot.plugins;
 
 import java.util.ArrayList;
 

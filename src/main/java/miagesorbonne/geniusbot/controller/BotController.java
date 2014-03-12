@@ -11,11 +11,12 @@ import java.util.HashMap;
 import java.util.Map;
 import miagesorbonne.geniusbot.entity.Keyword;
 import miagesorbonne.geniusbot.entity.Step;
+import miagesorbonne.geniusbot.plugins.CalendarPlugin;
 
 /**
- * Controlle the Entity and handle the software intelligence between
- * model and view layer of the application
- * 
+ * Controlle the Entity and handle the software intelligence between model and
+ * view layer of the application
+ *
  * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
  * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amine Amanzou <amineamanzou@gmail.com>
@@ -107,15 +108,24 @@ public class BotController {
         if (match == null) {
             answer = parser.getInvalidAnswer();
         } else {
-            // Getting the new step and return the new answer
-            if (answer.length() == 0) {
-                bot.step = match.target;
-                step = parser.getStep(bot.step);
-
-                // If it's the last step of a situation
-                if (step.getKeywords().isEmpty()) {
-                    answer = this.getMessage();
+           
+            if (match.className.length() > 0) {
+                if (match.className.equals("Calendar")) {
+                    CalendarPlugin calendarPlugin = new CalendarPlugin();
+                    answer = calendarPlugin.getAnswer(match.arg);
                     bot.step = "1";
+                }
+            } else {
+                // Getting the new step and return the new answer
+                if (answer.length() == 0) {
+                    bot.step = match.target;
+                    step = parser.getStep(bot.step);
+
+                    // If it's the last step of a situation
+                    if (step.getKeywords().isEmpty()) {
+                        answer = this.getMessage();
+                        bot.step = "1";
+                    }
                 }
             }
 
@@ -125,9 +135,10 @@ public class BotController {
 
     /**
      * Method which parse a message to find match in the keywords
+     *
      * @param message
      * @param keywordList
-     * @return 
+     * @return
      */
     private Keyword parse(String message, ArrayList<Keyword> keywordList) {
         int bestMatch = -1;
@@ -148,15 +159,16 @@ public class BotController {
             }
 
         }
-        
+
         return match;
     }
 
     /**
      * Method which give the number of match
+     *
      * @param text
      * @param keyword
-     * @return 
+     * @return
      */
     private int getMatch(String text, Keyword keyword) {
         int result = -1;

@@ -1,4 +1,4 @@
-package miagesorbonne.geniusbot.plugins.calendar;
+package miagesorbonne.geniusbot.plugins;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -28,26 +28,23 @@ public class CalendarPlugin {
     public CalendarPlugin() {
         this.listCal = new ArrayList<Calendar>();
     }
-    
-    
 
     public void read() {
-
         try {
             br = new BufferedReader(new FileReader(csvFile));
-            
+
             while ((line = br.readLine()) != null) {
                 String[] cal = line.split(splitBy);
-                
-                int i=0;
-                while(i<cal.length) {
+
+                int i = 0;
+                while (i < cal.length) {
                     String titre = cal[i++];
                     String heureDeb = cal[i++];
                     String heureFin = cal[i++];
                     ArrayList<String> participants = new ArrayList<String>(Arrays.asList(cal[i++].split(listSplit)));
                     String lieu = cal[i++];
-                    
-                    Calendar c = new Calendar(titre,heureDeb,heureFin,participants,lieu);
+
+                    Calendar c = new Calendar(titre, heureDeb, heureFin, participants, lieu);
                     listCal.add(c);
                 }
             }
@@ -63,9 +60,14 @@ public class CalendarPlugin {
             }
         }
     }
-    
-    public void test() {
-        System.out.println(listCal.get(0).toString());
-        System.out.println(listCal.get(1).toString());
+
+    public String getAnswer(String question) {
+        String answer = "";
+
+        if (question.equals("journee")) {
+            answer = "Test";
+        }
+
+        return answer;
     }
 }

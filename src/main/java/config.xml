@@ -12,6 +12,7 @@
         <message>De quoi as-tu besoin ?</message>
         <keywords>
             <keyword target="1">*</keyword>
+            <keyword className="Calendar" arg="journee">programme journee</keyword>
         </keywords>
     </Step>
 
