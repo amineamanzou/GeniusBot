@@ -40,9 +40,10 @@ public class Contact{
     
      @Override
     public String toString() {
-        String message = "Nom: " + nom + "-  " + sexe + " - Adresse: " + adresse +
-                " - Surnom: " + surnom;
-        message += " - Mail: " + mails.toString() + " - Telephone: " + telephones.toString();
+        String message =   nom + " de sexe " + sexe + " habite au " + adresse + ".\n" +
+                "Ses collègues aiment bien le surnommer " + surnom + ".\n";
+        message += "On peut le contacter aux adresses mails suivantes : " + mails.toString() + ".\n" 
+                + "Ainsi que sur ses numéros de telephone : " + telephones.toString();
         return message;
     }
 

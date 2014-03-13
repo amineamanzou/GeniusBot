@@ -28,6 +28,13 @@ public class MainContact {
         test.listContact();
         System.out.println(test.knowsHim("Amine"));
         System.out.println(test.knowsHim("Alexandre Le Boucher"));
+        System.out.println(test.exists("Amine"));
+        System.out.println(test.exists("Alexandre Le Boucher"));
+        System.out.println(test.whereLeaves("Alexandre Le Boucher"));
+        System.out.println(test.allAboutHim("Alexandre Le Boucher"));
+        
+        System.out.println(test.information("Amine Amanzou", "all"));
+        System.out.println(test.information("Amine Amanzou", "surnom"));
         
     }
 }
