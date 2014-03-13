@@ -77,20 +77,109 @@ public class ContactPlugin {
         }
     }
     
+    /**
+     * Fonction qui retourne un booléen pour savoir si un contact existe ou non en fonction de son nom
+     * @param name nom du contact
+     * @return true si le nom existe, non sinon
+     */
+    public Boolean exists(String name){
+        
+        boolean temp = false;
+        
+         for (int i = 1; i < listContacts.size(); i++) {
+            if ((listContacts.get(i).getNom()).equals(name)) {
+                temp = true;            
+            }
+        }
+        
+        return temp;
+    }
     
+    
+    
+    
+    public String information(String name, String infos){
+        
+         String answer = "";
+       
+
+        for (int i = 1; i < listContacts.size(); i++) {
+            if ((listContacts.get(i).getNom()).equals(name)) {
+                if(infos.equals("adresse"))
+                     answer = name + "habite : " + listContacts.get(i).getAdresse();
+                
+                else if(infos.equals("sexe"))
+                     answer = name + " est de sexe " + listContacts.get(i).getSexe();
+                
+                 else if(infos.equals("all"))
+                      answer = "Voici toutes les informations diponibles sur le contact " + name + " : \n" 
+                    + listContacts.get(i).toString();
+                     
+                 else if(infos.equals("surnom"))
+                     answer = "Ses collègues l'ont surnommé " + listContacts.get(i).getSurnom();
+                 
+                 else if(infos.equals("telephone"))
+                      answer = name + "est disponible au(x) : " + listContacts.get(i).getTelephone().toString();
+                 
+                 else if(infos.equals("mail"))
+                     answer = name + "est disponible au(x) : " + listContacts.get(i).getMails().toString();
+                    
+                 
+            }
+        }
+        
+        return answer;
+        
+        
+        
+    }
+    
+    
+    /**
+     * Fonction qui retourne l'information en fonction du nom et de l'information que l'on veut
+     * @param name nom du contact
+     * @param infos l'information recherchée
+     * @return l'information recherchée
+     */
+    private String informations(String name, String infos){
+        
+        String temp = "";
+       
+
+        for (int i = 1; i < listContacts.size(); i++) {
+            if ((listContacts.get(i).getNom()).equals(name)) {
+                if(infos.equals("adresse"))
+                     temp = listContacts.get(i).getAdresse();
+                else if(infos.equals("sexe"))
+                     temp = listContacts.get(i).getSexe();
+                 else if(infos.equals("all"))
+                     temp = listContacts.get(i).toString();
+                 else if(infos.equals("surnom"))
+                     temp = listContacts.get(i).getSurnom();
+                 else if(infos.equals("telephone"))
+                     temp = listContacts.get(i).getTelephone().toString();
+                 else if(infos.equals("mail"))
+                     temp = listContacts.get(i).getMails().toString();
+                 
+            }
+        }
+        
+        return temp;
+    }
+    
+    
+    
+    /**
+     * Fonction qui retourne si un contact existe ou non en donnant son nom
+     * @param name nom du contact
+     * @return le nom du contact ou non
+     */
     public String knowsHim(String name){
         
         String answer = "";
-        boolean prog = false;
-        for (int i = 1; i < listContacts.size(); i++) {
-            if ((listContacts.get(i).getNom()).equals(name)) {
-                prog = true;
-                answer += listContacts.get(i).getNom() + "\n";
-            }
-        }
-
-        if (prog) {
-            answer = "Oui nous avons dans notre répertoire : \n" + answer;
+     
+        if (exists(name)) {
+            answer = "Oui nous avons dans notre répertoire : \n" + name;
         } else {
             answer = "Nous ne connaissons personne de ce nom la !";
         }
@@ -99,36 +188,90 @@ public class ContactPlugin {
     }
     
     
-    public String whoIsHe(String name){
-        
-        return null;
-    }
-    
+ 
+    /**
+     * Fonction qui retourne l'adresse d'un contact si il existe
+     * @param name nom du contact
+     * @return l'adresse du contact ou non
+     */
     public String whereLeaves(String name){
      
-        return null;
+        String answer = "";
+     
+        if (exists(name)) {
+            answer = name + "habite : " + informations(name,"adresse");
+        } else {
+            answer = "Nous ne connaissons personne de ce nom la !";
+        }
+        return answer;
         
     }
     
-    public String howOld(String name){
-        
-        return null;
-    }
     
+    /**
+     * Retourne toutes les informations disponibles sur le contact
+     * @param name nom du contact
+     * @return les informations du contact ou non
+     */
     public String allAboutHim(String name){
         
-        return null;
+        String answer = "";
+     
+        if (exists(name)) {
+            answer = "Voici toutes les informations diponibles sur le contact " + name + " : \n" 
+                    + informations(name,"all");
+        } else {
+            answer = "Nous ne connaissons personne de ce nom la !";
+        }
+        return answer;
+        
     }
     
+    
+    /**
+     * Retourne les numéros de téléphone du contact
+     * @param name nom du contact
+     * @return les numéros de téléphone ou non
+     */
     public String phone(String name){
         
-        return null;
+        String answer = "";
+     
+        if (exists(name)) {
+            answer = name + "est disponible au(x) : " + informations(name,"telephone");
+        } else {
+            answer = "Nous ne connaissons personne de ce nom la !";
+        }
+        return answer;
+        
     }
     
-    public String allMail(String name){
+    /**
+     * Retourne les mails du contact
+     * @param name nom du contact
+     * @return les mails du contact ou non
+     */
+    public String Mail(String name){
         
-        return null;
+         String answer = "";
+     
+        if (exists(name)) {
+            answer = name + "est disponible au(x) : " + informations(name,"mail");
+        } else {
+            answer = "Nous ne connaissons personne de ce nom la !";
+        }
+        return answer;
     }
+    
+     
+     
+   
+    
+    
+    
+   
+    
+   
     
     
     
