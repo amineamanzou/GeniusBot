@@ -15,7 +15,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import miagesorbonne.geniusbot.entity.Keyword;
 import miagesorbonne.geniusbot.entity.Step;
-import miagesorbonne.geniusbot.plugins.CalendarPlugin;
 
 /**
  * Controlle the Entity and handle the software intelligence between model and
@@ -143,9 +142,7 @@ public class BotController {
                     Logger.getLogger(BotController.class.getName()).log(Level.SEVERE, null, ex);
                     System.err.println(ex.getMessage());
                 }
-                
-                bot.step = match.target;
-            
+                            
             } else {
                 // Getting the new step and return the new answer
                 if (answer.length() == 0) {
