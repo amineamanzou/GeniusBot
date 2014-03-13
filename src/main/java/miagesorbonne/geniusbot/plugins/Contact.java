@@ -21,30 +21,28 @@ import java.util.List;
 public class Contact{
     
     private String nom;
-    private String prenom;
     private String sexe;
     private String adresse;
     private String surnom;
     private ArrayList<String> mails;
-    private String telephone;
+    private ArrayList<String> telephones;
 
     
-     public Contact(String nom, String prenom, String sexe, String adresse, String surnom,  ArrayList<String> mails, String telephone) {
+     public Contact(String nom, String sexe, String adresse, String surnom,  ArrayList<String> mails, ArrayList<String> telephones) {
         this.nom = nom;
-        this.prenom = prenom;
         this.sexe = sexe;
         this.adresse = adresse;
         this.surnom = surnom;
         this.mails = mails;
-        this.telephone = telephone;
+        this.telephones = telephones;
     }
     
     
      @Override
     public String toString() {
-        String message = "Nom: " + nom + " " + prenom + "-  " + sexe + " - Adresse: " + adresse +
+        String message = "Nom: " + nom + "-  " + sexe + " - Adresse: " + adresse +
                 " - Surnom: " + surnom;
-        message += " - Mail: " + mails.toString() + " - Telephone: " + telephone;
+        message += " - Mail: " + mails.toString() + " - Telephone: " + telephones.toString();
         return message;
     }
 
@@ -73,12 +71,6 @@ public class Contact{
     }
 
     
-    /**
-     * @return the prenom
-     */
-    public String getPrenom() {
-        return prenom;
-    }
 
 
     /**
@@ -100,8 +92,8 @@ public class Contact{
     /**
      * @return the telephone
      */
-    public String getTelephone() {
-        return telephone;
+    public ArrayList<String> getTelephone() {
+        return telephones;
     }
 
  
