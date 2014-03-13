@@ -13,6 +13,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Calendar PLugin that add calendar functionnality to the bot
@@ -137,7 +139,8 @@ public class CalendarPlugin {
         Calendar now = Calendar.getInstance();
         boolean prog = false;
         for (int i = 1; i < listCal.size(); i++) {
-            if (getCalendarWithoutTime(listCal.get(i).getDebut()).equals(getCalendarWithoutTime(now)) 
+            Calendar d = (Calendar) listCal.get(i).getDebut().clone();
+            if (getCalendarWithoutTime(d).equals(getCalendarWithoutTime(now))
                     && listCal.get(i).getDebut().after(Calendar.getInstance())) {
                 prog = true;
                 answer += "- " + listCal.get(i).getTitre() + " de " + listCal.get(i).getHeureDeb() + " à " + listCal.get(i).getHeureFin() + "\n";
@@ -149,6 +152,7 @@ public class CalendarPlugin {
         } else {
             answer = "Vous n'avez pas de programme aujourd'hui !";
         }
+
         return answer;
     }
 
@@ -165,7 +169,7 @@ public class CalendarPlugin {
         }
 
         boolean prog = false;
-        for (int y = 0; y < listDates.size()-1; y++) {
+        for (int y = 0; y < listDates.size() - 1; y++) {
             for (int i = 1; i < listCal.size(); i++) {
                 if (getDateWithoutTime(listCal.get(i).getDebut().getTime()).equals(getDateWithoutTime(listDates.get(y)))
                         && listCal.get(i).getDebut().after(Calendar.getInstance())) {
@@ -188,7 +192,7 @@ public class CalendarPlugin {
         Calendar now = Calendar.getInstance();
         int weekday = now.get(Calendar.DAY_OF_WEEK);
         if (weekday != Calendar.MONDAY) {
-            // calculate how much to add  
+
             // the 2 is the difference between Saturday and Monday  
             int days = (Calendar.SATURDAY - weekday + 2) % 7;
             now.add(Calendar.DAY_OF_YEAR, days);
@@ -245,7 +249,7 @@ public class CalendarPlugin {
         return answer;
     }
 
-    public String setRDV(String question) {
+    public String setRDV(String message) {
         String answer = "";
 
         return answer;
@@ -262,7 +266,7 @@ public class CalendarPlugin {
         boolean next = false;
         int nearestDate = 0;
         for (int i = 0; i < listCal.size(); i++) {
-            if (listCal.get(i).getDebut().after(Calendar.getInstance())) {
+            if (listCal.get(i).getDebut().compareTo(Calendar.getInstance()) > 0) {
                 nearestDate = i;
                 next = true;
                 break;

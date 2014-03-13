@@ -39,7 +39,7 @@ public class Calendars {
 
     @Override
     public String toString() {
-        String message = "Titre: " + titre + "- Date: " + date + " - Heure de début: " + heureDeb + " - Heure de fin: " + heureFin;
+        String message = "Titre: " + titre + "- Date: " + date + " , "+ debut.getTime()+" - Heure de début: " + heureDeb + " - Heure de fin: " + heureFin;
         message += " - Participants: " + participants.toString() + " - Lieu: " + lieu;
         return message;
     }
