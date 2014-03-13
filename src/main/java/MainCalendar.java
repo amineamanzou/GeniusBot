@@ -15,12 +15,10 @@ public class MainCalendar {
      * @param args 
      */
     public static void main(String[] args) {
-        System.out.println("DEBUT");
+        System.out.println("Liste des evenements:\n");
         CalendarPlugin test = new CalendarPlugin();
-        test.read();
-        System.out.println("FIN");
         test.listCal();
-        System.out.println(test.getProgrammeJournee());
-        System.out.println(test.getHours());
+        System.out.println("\nQuestion programme journée : \n" + test.getProgrammeJournee());
+        System.out.println("Question heure : \n" + test.getHours());
     }
 }

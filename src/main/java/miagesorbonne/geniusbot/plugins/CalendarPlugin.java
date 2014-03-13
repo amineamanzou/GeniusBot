@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 /**
  * Calendar PLugin that add calendar functionnality to the bot
- * 
+ *
  * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
  * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amine Amanzou <amineamanzou@gmail.com>
@@ -31,11 +31,13 @@ public class CalendarPlugin {
 
     public CalendarPlugin() {
         this.listCal = new ArrayList<Calendars>();
+        read();
     }
 
     public void listCal() {
-        System.out.println(listCal.get(0).toString());
-        System.out.println(listCal.get(1).toString());
+        for (int i = 0; i < listCal.size(); i++) {
+            System.out.println(listCal.get(i).toString());
+        }
     }
 
     public void read() {
@@ -59,12 +61,33 @@ public class CalendarPlugin {
                         Logger.getLogger(CalendarPlugin.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
-                    String heureDeb = cal[i++];
-                    String heureFin = cal[i++];
+                    formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                    String h = d + " " + cal[i++];
+                    Date heureDeb = null;
+                    Calendar cDeb = Calendar.getInstance();
+
+                    try {
+                        heureDeb = formatter.parse(h);
+                        cDeb.setTime(heureDeb);
+                    } catch (ParseException ex) {
+                        Logger.getLogger(CalendarPlugin.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    h = d + " " + cal[i++];
+                    Date heureFin = null;
+                    Calendar cFin = Calendar.getInstance();
+
+                    try {
+                        heureFin = formatter.parse(h);
+                        cFin.setTime(heureFin);
+                    } catch (ParseException ex) {
+                        Logger.getLogger(CalendarPlugin.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
                     ArrayList<String> participants = new ArrayList<String>(Arrays.asList(cal[i++].split(listSplit)));
                     String lieu = cal[i++];
 
-                    Calendars c = new Calendars(titre, date, heureDeb, heureFin, participants, lieu);
+                    Calendars c = new Calendars(titre, cDeb, cFin, participants, lieu);
                     listCal.add(c);
                 }
             }
@@ -89,24 +112,21 @@ public class CalendarPlugin {
         return answer;
     }
 
-    private Date getDateWithOutTime(Date targetDate) {
-        Calendar newDate = Calendar.getInstance();
-        newDate.setLenient(false);
-        newDate.setTime(targetDate);
-        newDate.set(Calendar.HOUR_OF_DAY, 0);
-        newDate.set(Calendar.MINUTE, 0);
-        newDate.set(Calendar.SECOND, 0);
-        newDate.set(Calendar.MILLISECOND, 0);
+    private Calendar getDateWithOutTime(Calendar targetDate) {
+        targetDate.set(Calendar.HOUR_OF_DAY, 0);
+        targetDate.set(Calendar.MINUTE, 0);
+        targetDate.set(Calendar.SECOND, 0);
+        targetDate.set(Calendar.MILLISECOND, 0);
 
-        return newDate.getTime();
+        return targetDate;
     }
 
     public String getProgrammeJournee() {
         String answer = "";
-        Date now = new java.util.Date();
+        Calendar now = Calendar.getInstance();
         boolean prog = false;
         for (int i = 1; i < listCal.size(); i++) {
-            if (getDateWithOutTime(listCal.get(i).getDate()).equals(getDateWithOutTime(now))) {
+            if (getDateWithOutTime(listCal.get(i).getDebut()).equals(getDateWithOutTime(now))) {
                 prog = true;
                 answer += listCal.get(i).getTitre() + "\n";
             }
