@@ -21,5 +21,7 @@ public class MainCalendar {
         System.out.println("\nQuestion programme journée : \n" + test.getProgrammeJournee());
         System.out.println("Question heure : \n" + test.getHours());
         System.out.println("\nQuestion prochain RDV : \n" + test.getNextRDV());
+        System.out.println("\nQuestion prochain rencontre : \n" + test.getNextMeeting("Test"));
+        System.out.println("\nQuestion programme semaine : \n" + test.getProgrammeSemaine());
     }
 }

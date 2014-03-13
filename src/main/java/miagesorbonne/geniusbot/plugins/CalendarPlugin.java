@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,7 +28,7 @@ public class CalendarPlugin {
     String line = "";
     String splitBy = ";";
     String listSplit = "-";
-    ArrayList<Calendars> listCal;
+    List<Calendars> listCal;
 
     public CalendarPlugin() {
         this.listCal = new ArrayList<Calendars>();
@@ -112,7 +113,7 @@ public class CalendarPlugin {
         return answer;
     }
 
-    private Calendar getDateWithOutTime(Calendar targetDate) {
+    private Calendar getCalendarWithoutTime(Calendar targetDate) {
         targetDate.set(Calendar.HOUR_OF_DAY, 0);
         targetDate.set(Calendar.MINUTE, 0);
         targetDate.set(Calendar.SECOND, 0);
@@ -121,14 +122,25 @@ public class CalendarPlugin {
         return targetDate;
     }
 
+    public static Date getDateWithoutTime(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+    }
+
     public String getProgrammeJournee() {
         String answer = "";
         Calendar now = Calendar.getInstance();
         boolean prog = false;
         for (int i = 1; i < listCal.size(); i++) {
-            if (getDateWithOutTime(listCal.get(i).getDebut()).equals(getDateWithOutTime(now))) {
+            if (getCalendarWithoutTime(listCal.get(i).getDebut()).equals(getCalendarWithoutTime(now)) 
+                    && listCal.get(i).getDebut().after(Calendar.getInstance())) {
                 prog = true;
-                answer += listCal.get(i).getTitre() + "\n";
+                answer += "- " + listCal.get(i).getTitre() + " de " + listCal.get(i).getHeureDeb() + " à " + listCal.get(i).getHeureFin() + "\n";
             }
         }
 
@@ -143,17 +155,92 @@ public class CalendarPlugin {
     public String getProgrammeSemaine() {
         String answer = "";
 
+        List<Date> listDates = new ArrayList<Date>(25);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(Calendar.getInstance().getTime());
+        listDates.add(Calendar.getInstance().getTime());
+        while (cal.getTime().before(nextWeek().getTime())) {
+            cal.add(Calendar.DATE, 1);
+            listDates.add(cal.getTime());
+        }
+
+        boolean prog = false;
+        for (int y = 0; y < listDates.size()-1; y++) {
+            for (int i = 1; i < listCal.size(); i++) {
+                if (getDateWithoutTime(listCal.get(i).getDebut().getTime()).equals(getDateWithoutTime(listDates.get(y)))
+                        && listCal.get(i).getDebut().after(Calendar.getInstance())) {
+                    prog = true;
+                    answer += "- " + listCal.get(i).getTitre() + " le " + listCal.get(i).getDate() + " de " + listCal.get(i).getHeureDeb() + " à " + listCal.get(i).getHeureFin() + "\n";
+                }
+            }
+        }
+
+        if (prog) {
+            answer = "Votre programme de la semaine est le suivant : \n" + answer;
+        } else {
+            answer = "Vous n'avez pas de programme cette semaine !";
+        }
+
         return answer;
     }
 
-    public String getRDV(String question) {
-        String answer = "";
+    public Calendar nextWeek() {
+        Calendar now = Calendar.getInstance();
+        int weekday = now.get(Calendar.DAY_OF_WEEK);
+        if (weekday != Calendar.MONDAY) {
+            // calculate how much to add  
+            // the 2 is the difference between Saturday and Monday  
+            int days = (Calendar.SATURDAY - weekday + 2) % 7;
+            now.add(Calendar.DAY_OF_YEAR, days);
+        }
 
-        return answer;
+        return now;
     }
 
-    public String getNextMeeting(String question) {
+    public String getNextMeeting(String name) {
         String answer = "";
+
+        boolean next = false;
+        int nearestDate = 0;
+        for (int i = 0; i < listCal.size(); i++) {
+            if (listCal.get(i).getDebut().after(Calendar.getInstance())) {
+                for (int y = 0; y < listCal.get(i).getParticipants().size(); y++) {
+                    if (listCal.get(i).getParticipants().get(y).equals(name)) {
+                        next = true;
+                        break;
+                    }
+                }
+                if (next) {
+                    nearestDate = i;
+                    break;
+                }
+            }
+        }
+
+        if (!next) {
+            answer = "Vous n'avez pas de rendez-vous avec " + name + " !";
+        } else {
+            next = false;
+            for (int i = 1; i < listCal.size(); i++) {
+                if (listCal.get(i).getDebut().before(listCal.get(nearestDate).getDebut())
+                        && listCal.get(i).getDebut().after(Calendar.getInstance())) {
+                    next = false;
+                    for (int y = 0; y < listCal.get(i).getParticipants().size(); y++) {
+                        if (listCal.get(i).getParticipants().get(y).equals(name)) {
+                            next = true;
+                            break;
+                        }
+                    }
+                    if (next) {
+                        nearestDate = i;
+                    }
+                }
+            }
+
+            answer = "Votre prochain rendez vous avec " + name + " aura lieu le ";
+            answer += listCal.get(nearestDate).getDate();
+            answer += " de " + listCal.get(nearestDate).getHeureDeb() + " à " + listCal.get(nearestDate).getHeureFin();
+        }
 
         return answer;
     }
@@ -172,7 +259,6 @@ public class CalendarPlugin {
     public String getNextRDV() {
         String answer = "";
 
-        //System.out.println("test " + Calendar.getInstance().getTime());
         boolean next = false;
         int nearestDate = 0;
         for (int i = 0; i < listCal.size(); i++) {
@@ -182,11 +268,11 @@ public class CalendarPlugin {
                 break;
             }
         }
-        
+
         if (!next) {
             answer = "Vous n'avez pas de rendez-vous !";
         } else {
-            
+
             for (int i = 1; i < listCal.size(); i++) {
                 if (listCal.get(i).getDebut().before(listCal.get(nearestDate).getDebut())
                         && listCal.get(i).getDebut().after(Calendar.getInstance())) {
@@ -198,7 +284,7 @@ public class CalendarPlugin {
             answer += listCal.get(nearestDate).getDate();
             answer += " de " + listCal.get(nearestDate).getHeureDeb() + " à " + listCal.get(nearestDate).getHeureFin();
         }
-        
+
         return answer;
     }
 
