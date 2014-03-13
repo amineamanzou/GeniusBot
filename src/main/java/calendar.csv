@@ -1,2 +1,4 @@
-titre;heureDeb;heureFin;participants;lieu
-test;9h00;10h00;Shinthu-Amine-Alex;Paris
+titre;date;heureDeb;heureFin;participants;lieu
+test;13/03/2014;9h00;10h00;Shinthu-Amine-Alex;Paris
+testevenement;13/03/2014;14h00;16h00;Shinthu-Amine-Alex;Paris
+okok;14/03/2014;14h00;16h00;Shinthu-Amine-Alex;Paris

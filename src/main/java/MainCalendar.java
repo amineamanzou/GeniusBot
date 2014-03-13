@@ -9,5 +9,8 @@ public class MainCalendar {
         CalendarPlugin test = new CalendarPlugin();
         test.read();
         System.out.println("FIN");
+        test.listCal();
+        System.out.println(test.getProgrammeJournee());
+        System.out.println(test.getHours());
     }
 }

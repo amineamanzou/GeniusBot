@@ -7,20 +7,23 @@
 package miagesorbonne.geniusbot.plugins;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
  * @author Sinthu
  */
-public class Calendar {
+public class Calendars {
     private String titre;
+    private Date date;
     private String heureDeb;
     private String heureFin;
     private ArrayList<String> participants;
     private String lieu;
 
-    public Calendar(String titre, String heureDeb, String heureFin, ArrayList<String> participants, String lieu) {
+    public Calendars(String titre, Date date, String heureDeb, String heureFin, ArrayList<String> participants, String lieu) {
         this.titre = titre;
+        this.date = date;
         this.heureDeb = heureDeb;
         this.heureFin = heureFin;
         this.participants = participants;
@@ -29,10 +32,27 @@ public class Calendar {
     
     @Override
     public String toString() {
-        String message = "Titre: " + titre + " - Heure de début: " + heureDeb + " - Heure de fin: " + heureFin;
+        String message = "Titre: " + titre + "- Date: " + date + " - Heure de début: " + heureDeb + " - Heure de fin: " + heureFin;
         message += " - Participants: " + participants.toString() + " - Lieu: "+lieu;
         return message;
     }
-            
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public ArrayList<String> getParticipants() {
+        return participants;
+    }
+
+    public String getLieu() {
+        return lieu;
+    }
+          
+    
     
 }
