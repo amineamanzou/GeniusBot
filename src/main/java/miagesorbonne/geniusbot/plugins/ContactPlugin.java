@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
 
 /**
@@ -52,14 +53,14 @@ public class ContactPlugin {
                 while (i < contact.length) {
                     
                     String nom = contact[i++];
-                    String prenom = contact[i++];
                     String sexe = contact[i++];
                     String adresse = contact[i++];
                     String surnom = contact[i++];
                     ArrayList<String> mails = new ArrayList<String>(Arrays.asList(contact[i++].split(listSplit)));
-                    String telephone = contact[i++];
+                    ArrayList<String> telephones = new ArrayList<String>(Arrays.asList(contact[i++].split(listSplit)));
+                   
 
-                    Contact c = new Contact(nom, prenom, sexe, adresse, surnom, mails, telephone);
+                    Contact c = new Contact(nom, sexe, adresse, surnom, mails, telephones);
                     listContacts.add(c);
                 }
             }
@@ -74,6 +75,59 @@ public class ContactPlugin {
                 }
             }
         }
+    }
+    
+    
+    public String knowsHim(String name){
+        
+        String answer = "";
+        boolean prog = false;
+        for (int i = 1; i < listContacts.size(); i++) {
+            if ((listContacts.get(i).getNom()).equals(name)) {
+                prog = true;
+                answer += listContacts.get(i).getNom() + "\n";
+            }
+        }
+
+        if (prog) {
+            answer = "Oui nous avons dans notre répertoire : \n" + answer;
+        } else {
+            answer = "Nous ne connaissons personne de ce nom la !";
+        }
+        return answer;
+        
+    }
+    
+    
+    public String whoIsHe(String name){
+        
+        return null;
+    }
+    
+    public String whereLeaves(String name){
+     
+        return null;
+        
+    }
+    
+    public String howOld(String name){
+        
+        return null;
+    }
+    
+    public String allAboutHim(String name){
+        
+        return null;
+    }
+    
+    public String phone(String name){
+        
+        return null;
+    }
+    
+    public String allMail(String name){
+        
+        return null;
     }
     
     

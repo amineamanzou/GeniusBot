@@ -26,5 +26,8 @@ public class MainContact {
         test.read();
         System.out.println("FIN");
         test.listContact();
+        System.out.println(test.knowsHim("Amine"));
+        System.out.println(test.knowsHim("Alexandre Le Boucher"));
+        
     }
 }
