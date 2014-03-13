@@ -5,9 +5,14 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.Format;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -49,10 +54,21 @@ public class ContactPlugin {
             while ((line = br.readLine()) != null) {
                 String[] contact = line.split(splitBy);
 
+                
                 int i = 0;
                 while (i < contact.length) {
                     
                     String nom = contact[i++];
+                   
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                    String naissance = contact[i++];
+                    Date date = null;
+
+                    try {
+                        date = formatter.parse(naissance);
+                    } catch (ParseException ex) {
+                        Logger.getLogger(ContactPlugin.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     String sexe = contact[i++];
                     String adresse = contact[i++];
                     String surnom = contact[i++];
@@ -60,7 +76,7 @@ public class ContactPlugin {
                     ArrayList<String> telephones = new ArrayList<String>(Arrays.asList(contact[i++].split(listSplit)));
                    
 
-                    Contact c = new Contact(nom, sexe, adresse, surnom, mails, telephones);
+                    Contact c = new Contact(nom, date, sexe, adresse, surnom, mails, telephones);
                     listContacts.add(c);
                 }
             }
@@ -117,6 +133,11 @@ public class ContactPlugin {
                      
                  else if(infos.equals("surnom"))
                      answer = "Ses collègues l'ont surnommé " + listContacts.get(i).getSurnom();
+                 
+                 else if(infos.equals("naissance"))    
+                     answer = name + " est né(e) le " + listContacts.get(i).getNaissance().toString();
+                 
+                     
                  
                  else if(infos.equals("telephone"))
                       answer = name + "est disponible au(x) : " + listContacts.get(i).getTelephone().toString();

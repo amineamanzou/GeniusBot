@@ -6,9 +6,10 @@
 
 package miagesorbonne.geniusbot.plugins;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  *
@@ -21,6 +22,7 @@ import java.util.List;
 public class Contact{
     
     private String nom;
+    private Date naissance;
     private String sexe;
     private String adresse;
     private String surnom;
@@ -28,8 +30,9 @@ public class Contact{
     private ArrayList<String> telephones;
 
     
-     public Contact(String nom, String sexe, String adresse, String surnom,  ArrayList<String> mails, ArrayList<String> telephones) {
+     public Contact(String nom, Date naissance, String sexe, String adresse, String surnom,  ArrayList<String> mails, ArrayList<String> telephones) {
         this.nom = nom;
+        this.naissance = naissance;
         this.sexe = sexe;
         this.adresse = adresse;
         this.surnom = surnom;
@@ -40,7 +43,8 @@ public class Contact{
     
      @Override
     public String toString() {
-        String message =   nom + " de sexe " + sexe + " habite au " + adresse + ".\n" +
+        
+        String message =   nom + " de sexe " + sexe + " né(e) le " + getNaissance() + " habite au " + adresse + ".\n" +
                 "Ses collègues aiment bien le surnommer " + surnom + ".\n";
         message += "On peut le contacter aux adresses mails suivantes : " + mails.toString() + ".\n" 
                 + "Ainsi que sur ses numéros de telephone : " + telephones.toString();
@@ -71,6 +75,14 @@ public class Contact{
         return adresse;
     }
 
+        /**
+         * 
+         * @return la naissance 
+         */
+    public Date getNaissance(){
+        
+        return naissance;
+    }
     
 
 

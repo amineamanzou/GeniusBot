@@ -1,4 +1,4 @@
-nom;sexe;adresse;surnom;mail;telephone
-Amine Amanzou;masculin;22 rue des Lilas;StylersCrewsisi;aamanzou@gmail.com-amanzou@wanadoo.fr;062245XXXX-078736464;
-Sivakumar Sinthujan;masculin;40 allée interdite;Indian Cobra;sivakumar@gmail.com-sinth@hotmail.fr;07653456XX;
-Alexandre Le Boucher;masculin;26 rue Estienne d'Orves;Night Bitch;alex@gmail.com-alex.lbj@wanadoo.fr;064681XXXX;
+nom;naissance;sexe;adresse;surnom;mail;telephone
+Amine Amanzou;22/04/1992;masculin;22 rue des Lilas;StylersCrewsisi;aamanzou@gmail.com-amanzou@wanadoo.fr;062245XXXX-078736464;
+Sivakumar Sinthujan;12/03/1993;masculin;40 allée interdite;Indian Cobra;sivakumar@gmail.com-sinth@hotmail.fr;07653456XX;
+Alexandre Le Boucher;18/01/1992;masculin;26 rue Estienne d'Orves;Night Bitch;alex@gmail.com-alex.lbj@wanadoo.fr;064681XXXX;
