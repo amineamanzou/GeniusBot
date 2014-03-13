@@ -16,6 +16,8 @@ public class Keyword implements Entity {
    
     // If it's with a plugin the classname to load
     public String className = "";
+    // If there is a className we need a method to call
+    public String method = "";
     // If there is an argument with this class
     public String arg = "";
     // If there is the a variable : [name]
@@ -25,26 +27,31 @@ public class Keyword implements Entity {
     // If the Step could learn something to the automate
     public String learn = "";
     
-    public int points = 0;
-
+    // Setting point to define the best match
+    public int points;
+    
     /**
      * Default constructor
      * 
      * @param keyword
      * @param target
      * @param className
+     * @param method
      * @param arg
+     * @param points
+     * @param learn
      * @param variable
      */
-    public Keyword(String keyword, String target, String className, String arg, String variable, int points, String learn) {
+    public Keyword(String keyword, String target, String className, String arg, String variable, String method, int points, String learn) {
         this.id = keyword;
         this.keyword = keyword;
         this.target = target;
         this.className = className;
         this.arg = arg;
         this.variable = variable;
-        this.points = points;
+        this.method = method;
         this.learn = learn;
+        this.points = points;
     }
 
     /**

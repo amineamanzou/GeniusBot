@@ -176,12 +176,13 @@ public class Parser {
                 String wordTag = el.getFirstChild().getNodeValue();
                 String target = el.getAttribute("target");
                 String className = el.getAttribute("className");
+                String method = el.getAttribute("method");
                 String arg = el.getAttribute("arg");
                 String variable = el.getAttribute("variable");
                 int points = 0;
                 try{
                      points = Integer.valueOf(el.getAttribute("points"));
-                }catch (Exception e){
+                }catch (NumberFormatException e){
                     
                 }
                 
@@ -197,7 +198,7 @@ public class Parser {
                     word = word.trim();
                     
                     // Building a new keyword
-                    Keyword keyword = new Keyword(word, target, className, arg, variable, points, learn );
+                    Keyword keyword = new Keyword(word, target, className, arg, variable, method, points,learn );
 
                     // Adding the keyword to keywords array list
                     keywords.add(keyword);
