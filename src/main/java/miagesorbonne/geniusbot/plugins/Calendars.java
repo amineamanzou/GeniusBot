@@ -1,17 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package miagesorbonne.geniusbot.plugins;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 /**
- *
- * @author Sinthu
+ * Calendar Entity used to stor an event in a calendar
+ * 
+ * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
+ * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
+ * @author Amine Amanzou <amineamanzou@gmail.com>
  */
 public class Calendars {
     private String titre;

@@ -1,11 +1,5 @@
 package miagesorbonne.geniusbot.plugins;
 
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
-
 import miagesorbonne.geniusbot.plugins.ContactPlugin;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -15,12 +9,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
-* JUnit Test for Contact Plugin
-*
-* @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
-* @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
-* @author Amine Amanzou <amineamanzou@gmail.com>
-*/
+ * JUnit Test for Contact Plugin
+ *
+ * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
+ * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
+ * @author Amine Amanzou <amineamanzou@gmail.com>
+ */
 public class ContactPluginTest {
     
     public ContactPluginTest() {
