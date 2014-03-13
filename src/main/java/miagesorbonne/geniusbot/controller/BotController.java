@@ -6,9 +6,13 @@
 package miagesorbonne.geniusbot.controller;
 
 import helpers.Regex;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import miagesorbonne.geniusbot.entity.Keyword;
 import miagesorbonne.geniusbot.entity.Step;
 import miagesorbonne.geniusbot.plugins.CalendarPlugin;
@@ -110,11 +114,38 @@ public class BotController {
         } else {
            
             if (match.className.length() > 0) {
-                if (match.className.equals("Calendar")) {
-                    CalendarPlugin calendarPlugin = new CalendarPlugin();
-                    answer = calendarPlugin.getAnswer(match.arg);
-                    bot.step = "1";
+
+                try {
+                    Class<?> c = Class.forName("miagesorbonne.geniusbot.plugins."+match.className);
+                    Object obj = c.newInstance();
+                    Class[] parameterTypes = new Class[] { String.class };
+                    Method  method = c.getDeclaredMethod(match.method, parameterTypes);
+                    answer = (String)method.invoke(obj, match.arg);
+                } catch (ClassNotFoundException e){
+                    Logger.getLogger(BotController.class.getName()).log(Level.SEVERE, null, e);
+                    System.err.println(e.getMessage());
+                } catch (NoSuchMethodException ex) {
+                    Logger.getLogger(BotController.class.getName()).log(Level.SEVERE, null, ex);
+                    System.err.println(ex.getMessage());
+                } catch (SecurityException ex) {
+                    Logger.getLogger(BotController.class.getName()).log(Level.SEVERE, null, ex);
+                    System.err.println(ex.getMessage());
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(BotController.class.getName()).log(Level.SEVERE, null, ex);
+                    System.err.println(ex.getMessage());
+                } catch (IllegalArgumentException ex) {
+                    Logger.getLogger(BotController.class.getName()).log(Level.SEVERE, null, ex);
+                    System.err.println(ex.getMessage());
+                } catch (InvocationTargetException ex) {
+                    Logger.getLogger(BotController.class.getName()).log(Level.SEVERE, null, ex);
+                    System.err.println(ex.getMessage());
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(BotController.class.getName()).log(Level.SEVERE, null, ex);
+                    System.err.println(ex.getMessage());
                 }
+                
+                bot.step = match.target;
+            
             } else {
                 // Getting the new step and return the new answer
                 if (answer.length() == 0) {
