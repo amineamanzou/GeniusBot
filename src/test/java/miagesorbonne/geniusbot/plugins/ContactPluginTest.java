@@ -36,18 +36,6 @@ public class ContactPluginTest {
     public void tearDown() {
     }
 
-    /**
-* Test of findByName method, of class ContactPlugin.
-*/
-    @Test
-    public void testFindByName() {
-        System.out.println("findByName");
-        String name = "Amine";
-        ContactPlugin instance = new ContactPlugin();
-        String expResult = "";
-        String result = instance.findByName(name);
-        assertEquals(expResult, result);
-        
-    }
+ 
     
 }
