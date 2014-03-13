@@ -11,6 +11,13 @@
 
 import miagesorbonne.geniusbot.plugins.ContactPlugin;
 
+
+
+  /**
+     * Main Method
+     * 
+     * @param args 
+     */
 public class MainContact {
 
     public static void main(String[] args) {
