@@ -20,6 +20,10 @@ public class Calendars {
     private Calendar fin;
     private ArrayList<String> participants;
     private String lieu;
+    
+    private String date;
+    private String heureDeb;
+    private String heureFin;
 
     public Calendars(String titre, Calendar heureDeb, Calendar heureFin, ArrayList<String> participants, String lieu) {
         this.titre = titre;
@@ -27,11 +31,15 @@ public class Calendars {
         this.fin = heureFin;
         this.participants = participants;
         this.lieu = lieu;
+        
+        this.date = days(debut);
+        this.heureDeb = hours(debut);
+        this.heureFin = hours(fin);
     }
 
     @Override
     public String toString() {
-        String message = "Titre: " + titre + "- Date: " + lieu + " - Heure de début: " + hours(debut) + " - Heure de fin: " + hours(fin);
+        String message = "Titre: " + titre + "- Date: " + date + " - Heure de début: " + heureDeb + " - Heure de fin: " + heureFin;
         message += " - Participants: " + participants.toString() + " - Lieu: " + lieu;
         return message;
     }
@@ -56,16 +64,34 @@ public class Calendars {
         return fin;
     }
 
+    public String getDate() {
+        return date;
+    }
 
+    public String getHeureDeb() {
+        return heureDeb;
+    }
+
+    public String getHeureFin() {
+        return heureFin;
+    }
+
+    
     public String hours(Calendar cal) {
         int hh = cal.get(Calendar.HOUR_OF_DAY);
         int mn = cal.get(Calendar.MINUTE);
-        int ss = cal.get(Calendar.SECOND);
 
         String heureS = ((hh < 10) ? "0" : "") + hh;
         String minutesS = ((mn < 10) ? "0" : "") + mn;
-        String secondesS = ((ss < 10) ? "0" : "") + ss;
 
-        return (heureS + ":" + minutesS + ":" + secondesS);
+        return (heureS + ":" + minutesS);
+    }
+    
+    public String days(Calendar cal) {
+        int dd = cal.get(Calendar.DATE);
+        int mm = cal.get(Calendar.MONTH);
+        int yy = cal.get(Calendar.YEAR);
+
+        return (dd + "/" + mm + "/" + yy);
     }
 }

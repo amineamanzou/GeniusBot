@@ -169,9 +169,36 @@ public class CalendarPlugin {
         return date.format(new Date());
     }
 
-    public String getNextRDV(String question) {
+    public String getNextRDV() {
         String answer = "";
 
+        //System.out.println("test " + Calendar.getInstance().getTime());
+        boolean next = false;
+        int nearestDate = 0;
+        for (int i = 0; i < listCal.size(); i++) {
+            if (listCal.get(i).getDebut().after(Calendar.getInstance())) {
+                nearestDate = i;
+                next = true;
+                break;
+            }
+        }
+        
+        if (!next) {
+            answer = "Vous n'avez pas de rendez-vous !";
+        } else {
+            
+            for (int i = 1; i < listCal.size(); i++) {
+                if (listCal.get(i).getDebut().before(listCal.get(nearestDate).getDebut())
+                        && listCal.get(i).getDebut().after(Calendar.getInstance())) {
+                    nearestDate = i;
+                }
+            }
+
+            answer = "Votre prochain rendez vous aura lieu le ";
+            answer += listCal.get(nearestDate).getDate();
+            answer += " de " + listCal.get(nearestDate).getHeureDeb() + " à " + listCal.get(nearestDate).getHeureFin();
+        }
+        
         return answer;
     }
 

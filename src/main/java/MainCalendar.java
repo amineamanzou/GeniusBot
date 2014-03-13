@@ -20,5 +20,6 @@ public class MainCalendar {
         test.listCal();
         System.out.println("\nQuestion programme journée : \n" + test.getProgrammeJournee());
         System.out.println("Question heure : \n" + test.getHours());
+        System.out.println("\nQuestion prochain RDV : \n" + test.getNextRDV());
     }
 }
