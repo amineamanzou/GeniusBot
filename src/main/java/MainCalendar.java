@@ -1,7 +1,7 @@
 import miagesorbonne.geniusbot.plugins.CalendarPlugin;
 
 /**
- * Main Calendar Class that test the plugin Calendar
+ * Main Calendar Class that demonstrate the functions of the plugin Calendar
  * 
  * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
  * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>

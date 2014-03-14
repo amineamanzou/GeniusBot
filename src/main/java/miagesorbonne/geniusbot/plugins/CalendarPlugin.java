@@ -32,17 +32,26 @@ public class CalendarPlugin {
     String listSplit = "-";
     List<Calendars> listCal;
 
+    /**
+     * Main constructor of the plugin
+     */
     public CalendarPlugin() {
         this.listCal = new ArrayList<Calendars>();
         read();
     }
 
+    /**
+     * Method that print the list of Calendar
+     */
     public void listCal() {
         for (int i = 0; i < listCal.size(); i++) {
             System.out.println(listCal.get(i).toString());
         }
     }
 
+    /**
+     * Method that read the CSV
+     */
     public void read() {
         try {
             br = new BufferedReader(new FileReader(csvFile));
@@ -107,6 +116,11 @@ public class CalendarPlugin {
         }
     }
 
+    /**
+     * Default Method linked to the bot for testing
+     * @param question
+     * @return 
+     */
     public String getAnswer(String question) {
         String answer = "";
         if (question.equals("journee")) {
@@ -115,6 +129,11 @@ public class CalendarPlugin {
         return answer;
     }
 
+    /**
+     * Init the calendar
+     * @param targetDate
+     * @return targetDate
+     */
     private Calendar getCalendarWithoutTime(Calendar targetDate) {
         targetDate.set(Calendar.HOUR_OF_DAY, 0);
         targetDate.set(Calendar.MINUTE, 0);
@@ -124,6 +143,11 @@ public class CalendarPlugin {
         return targetDate;
     }
 
+    /**
+     * Return the Date
+     * @param date
+     * @return 
+     */
     public static Date getDateWithoutTime(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -134,6 +158,10 @@ public class CalendarPlugin {
         return cal.getTime();
     }
 
+    /**
+     * Return the program of the day
+     * @return 
+     */
     public String getProgrammeJournee() {
         String answer = "";
         Calendar now = Calendar.getInstance();
@@ -156,6 +184,10 @@ public class CalendarPlugin {
         return answer;
     }
 
+    /**
+     * Return the program of the week
+     * @return 
+     */
     public String getProgrammeSemaine() {
         String answer = "";
 
@@ -188,6 +220,10 @@ public class CalendarPlugin {
         return answer;
     }
 
+    /**
+     * Get the event of the next week
+     * @return 
+     */
     public Calendar nextWeek() {
         Calendar now = Calendar.getInstance();
         int weekday = now.get(Calendar.DAY_OF_WEEK);
@@ -201,6 +237,11 @@ public class CalendarPlugin {
         return now;
     }
 
+    /**
+     * Get the next meeting with someone
+     * @param name
+     * @return 
+     */
     public String getNextMeeting(String name) {
         String answer = "";
 
@@ -249,17 +290,30 @@ public class CalendarPlugin {
         return answer;
     }
 
+    /**
+     * Save a new meeting event
+     * @param message
+     * @return 
+     */
     public String setRDV(String message) {
         String answer = "";
 
         return answer;
     }
 
+    /**
+     * Get the current hour:minute:second
+     * @return 
+     */
     public String getHours() {
         SimpleDateFormat date = new SimpleDateFormat("HH:mm:ss");
         return date.format(new Date());
     }
 
+    /**
+     * Return the next meeting
+     * @return 
+     */
     public String getNextRDV() {
         String answer = "";
 

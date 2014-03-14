@@ -25,6 +25,15 @@ public class Calendars {
     private String heureDeb;
     private String heureFin;
 
+    /**
+     * Main constructor of a single event
+     * 
+     * @param titre
+     * @param heureDeb
+     * @param heureFin
+     * @param participants
+     * @param lieu 
+     */
     public Calendars(String titre, Calendar heureDeb, Calendar heureFin, ArrayList<String> participants, String lieu) {
         this.titre = titre;
         this.debut = heureDeb;
@@ -44,39 +53,75 @@ public class Calendars {
         return message;
     }
 
+    /**
+     * Get the title of the event
+     * @return title
+     */
     public String getTitre() {
         return titre;
     }
 
+    /**
+     * Get the list of participants to the event
+     * @return participants
+     */
     public ArrayList<String> getParticipants() {
         return participants;
     }
 
+    /**
+     * Get the place where will be the event
+     * @return place
+     */
     public String getLieu() {
         return lieu;
     }
 
+    /**
+     * Get the begining date of the event
+     * @return begin
+     */
     public Calendar getDebut() {
         return debut;
     }
 
+    /**
+     * Get the date of the end of the event
+     * @return 
+     */
     public Calendar getFin() {
         return fin;
     }
 
+    /**
+     * Get the date of the event
+     * @return date
+     */
     public String getDate() {
         return date;
     }
 
+    /**
+     * Get the hour when begin the event
+     * @return hourBegin
+     */
     public String getHeureDeb() {
         return heureDeb;
     }
 
+    /**
+     * Get the hour when end the event
+     * @return hourEnd
+     */
     public String getHeureFin() {
         return heureFin;
     }
 
-    
+    /**
+     * Get the hour part of the date
+     * @param cal
+     * @return 
+     */
     public String hours(Calendar cal) {
         int hh = cal.get(Calendar.HOUR_OF_DAY);
         int mn = cal.get(Calendar.MINUTE);
@@ -87,6 +132,11 @@ public class Calendars {
         return (heureS + ":" + minutesS);
     }
     
+    /**
+     * Get the day part of the date
+     * @param cal
+     * @return 
+     */
     public String days(Calendar cal) {
         int dd = cal.get(Calendar.DATE);
         int mm = cal.get(Calendar.MONTH);
