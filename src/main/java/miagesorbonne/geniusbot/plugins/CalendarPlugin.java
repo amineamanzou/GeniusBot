@@ -55,54 +55,52 @@ public class CalendarPlugin {
     public void read() {
         try {
             br = new BufferedReader(new FileReader(csvFile));
-            
+            line = br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] cal = line.split(splitBy);
-                
+
                 int i = 0;
-                //while (i < cal.length) {
-                    String titre = cal[i++];
-                    System.out.println("test ->>>" + i);
-                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                    String d = cal[i++];
-                    Date date = null;
 
-                    try {
-                        date = formatter.parse(d);
-                    } catch (ParseException ex) {
-                        Logger.getLogger(CalendarPlugin.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                String titre = cal[i++];
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                String d = cal[i++];
+                Date date = null;
 
-                    formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-                    String h = d + " " + cal[i++];
-                    Date heureDeb = null;
-                    Calendar cDeb = Calendar.getInstance();
-
-                    try {
-                        heureDeb = formatter.parse(h);
-                        cDeb.setTime(heureDeb);
-                    } catch (ParseException ex) {
-                        Logger.getLogger(CalendarPlugin.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-
-                    h = d + " " + cal[i++];
-                    Date heureFin = null;
-                    Calendar cFin = Calendar.getInstance();
-
-                    try {
-                        heureFin = formatter.parse(h);
-                        cFin.setTime(heureFin);
-                    } catch (ParseException ex) {
-                        Logger.getLogger(CalendarPlugin.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-
-                    ArrayList<String> participants = new ArrayList<String>(Arrays.asList(cal[i++].split(listSplit)));
-                    String lieu = cal[i++];
-
-                    Calendars c = new Calendars(titre, cDeb, cFin, participants, lieu);
-                    listCal.add(c);
+                try {
+                    date = formatter.parse(d);
+                } catch (ParseException ex) {
+                    Logger.getLogger(CalendarPlugin.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            //}
+
+                formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                String h = d + " " + cal[i++];
+                Date heureDeb = null;
+                Calendar cDeb = Calendar.getInstance();
+
+                try {
+                    heureDeb = formatter.parse(h);
+                    cDeb.setTime(heureDeb);
+                } catch (ParseException ex) {
+                    Logger.getLogger(CalendarPlugin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                h = d + " " + cal[i++];
+                Date heureFin = null;
+                Calendar cFin = Calendar.getInstance();
+
+                try {
+                    heureFin = formatter.parse(h);
+                    cFin.setTime(heureFin);
+                } catch (ParseException ex) {
+                    Logger.getLogger(CalendarPlugin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                ArrayList<String> participants = new ArrayList<String>(Arrays.asList(cal[i++].split(listSplit)));
+                String lieu = cal[i++];
+
+                Calendars c = new Calendars(titre, cDeb, cFin, participants, lieu);
+                listCal.add(c);
+            }
 
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
@@ -118,8 +116,9 @@ public class CalendarPlugin {
 
     /**
      * Default Method linked to the bot for testing
+     *
      * @param question
-     * @return 
+     * @return
      */
     public String getAnswer(String question) {
         String answer = "";
@@ -131,6 +130,7 @@ public class CalendarPlugin {
 
     /**
      * Init the calendar
+     *
      * @param targetDate
      * @return targetDate
      */
@@ -145,8 +145,9 @@ public class CalendarPlugin {
 
     /**
      * Return the Date
+     *
      * @param date
-     * @return 
+     * @return
      */
     public static Date getDateWithoutTime(Date date) {
         Calendar cal = Calendar.getInstance();
@@ -160,7 +161,8 @@ public class CalendarPlugin {
 
     /**
      * Return the program of the day
-     * @return 
+     *
+     * @return
      */
     public String getProgrammeJournee(String msg) {
         String answer = "";
@@ -186,7 +188,8 @@ public class CalendarPlugin {
 
     /**
      * Return the program of the week
-     * @return 
+     *
+     * @return
      */
     public String getProgrammeSemaine(String msg) {
         String answer = "";
@@ -222,7 +225,8 @@ public class CalendarPlugin {
 
     /**
      * Get the event of the next week
-     * @return 
+     *
+     * @return
      */
     public Calendar nextWeek() {
         Calendar now = Calendar.getInstance();
@@ -239,8 +243,9 @@ public class CalendarPlugin {
 
     /**
      * Get the next meeting with someone
+     *
      * @param name
-     * @return 
+     * @return
      */
     public String getNextMeeting(String name) {
         String answer = "";
@@ -292,8 +297,9 @@ public class CalendarPlugin {
 
     /**
      * Save a new meeting event
+     *
      * @param message
-     * @return 
+     * @return
      */
     public String setRDV(String message) {
         String answer = "";
@@ -303,7 +309,8 @@ public class CalendarPlugin {
 
     /**
      * Get the current hour:minute:second
-     * @return 
+     *
+     * @return
      */
     public String getHours(String msg) {
         SimpleDateFormat date = new SimpleDateFormat("HH:mm:ss");
@@ -312,7 +319,8 @@ public class CalendarPlugin {
 
     /**
      * Return the next meeting
-     * @return 
+     *
+     * @return
      */
     public String getNextRDV(String msg) {
         String answer = "";
