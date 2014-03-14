@@ -80,9 +80,9 @@ public class ContactPlugin {
                     String surnom = contact[i++];
                     ArrayList<String> mails = new ArrayList<String>(Arrays.asList(contact[i++].split(listSplit)));
                     ArrayList<String> telephones = new ArrayList<String>(Arrays.asList(contact[i++].split(listSplit)));
-                   
+                    String age = contact[i++];
 
-                    Contact c = new Contact(nom, naissance, sexe, adresse, surnom, mails, telephones);
+                    Contact c = new Contact(nom, naissance, sexe, adresse, surnom, mails, telephones, age);
                     listContacts.add(c);
                 }
             }
@@ -117,53 +117,7 @@ public class ContactPlugin {
         return temp;
     }
     
-    /**
-     * Return a specific information according to the name of the contact and 
-     * displaying it in a sentence.
-     * @param name
-     * @param infos
-     * @return String information required
-     */
-    public String information(String name, String infos){
-        
-         String answer = "";
-       
-
-        for (int i = 1; i < listContacts.size(); i++) {
-            if ((listContacts.get(i).getNom()).equals(name)) {
-                if(infos.equals("adresse"))
-                     answer = name + "habite : " + listContacts.get(i).getAdresse();
-                
-                else if(infos.equals("sexe"))
-                     answer = name + " est de sexe " + listContacts.get(i).getSexe();
-                
-                 else if(infos.equals("all"))
-                      answer = "Voici toutes les informations diponibles sur le contact " + name + " : \n" 
-                    + listContacts.get(i).toString();
-                     
-                 else if(infos.equals("surnom"))
-                     answer = "Ses collègues l'ont surnommé " + listContacts.get(i).getSurnom();
-                 
-                 else if(infos.equals("naissance"))    
-                     answer = name + " est né(e) le " + listContacts.get(i).getNaissance().toString();
-                 
-                     
-                 
-                 else if(infos.equals("telephone"))
-                      answer = name + "est disponible au(x) : " + listContacts.get(i).getTelephone().toString();
-                 
-                 else if(infos.equals("mail"))
-                     answer = name + "est disponible au(x) : " + listContacts.get(i).getMails().toString();
-                    
-                 
-            }
-        }
-        
-        return answer;
-        
-        
-        
-    }
+   
     
     /**
      * Method used to retrieve the right information without displaying it
@@ -190,6 +144,8 @@ public class ContactPlugin {
                      temp = listContacts.get(i).getTelephone().toString();
                  else if(infos.equals("mail"))
                      temp = listContacts.get(i).getMails().toString();
+                 else if(infos.equals("naissance"))
+                     temp = listContacts.get(i).getNaissance();
                  
             }
         }
@@ -237,6 +193,23 @@ public class ContactPlugin {
         
     }
     
+      /**
+     * Get the date of birth of the contact in a sentence if it exist
+     * @param name name of the contact
+     * @return The date of birth of the contact or empty
+     */
+    public String whenBorns(String name){
+     
+        String answer = "";
+     
+        if (exists(name)) {
+            answer = name + " est né(e) le  " + informations(name,"naissance");
+        } else {
+            answer = "Nous ne connaissons personne de ce nom la !";
+        }
+        return answer;
+        
+    }
     
     /**
      * Get All the informaiton about the contact according to his name
@@ -254,6 +227,43 @@ public class ContactPlugin {
             answer = "Nous ne connaissons personne de ce nom la !";
         }
         return answer;
+        
+    }
+    
+    public String whoLivesIn(String city){
+        
+        String answer = "";
+     
+       for (int i = 1; i < listContacts.size(); i++) {
+            if ((listContacts.get(i).getAdresse()).equals(city.toLowerCase()))
+                answer +=  listContacts.get(i).getNom() + " vit bien à " + city + "\n";
+       }
+       
+       if(answer.isEmpty())
+             answer = "Personne ne vit à " + city ;
+         
+        return answer;
+        
+        
+    }
+    
+    public String whoHasMore(String age){
+        
+        String answer = "";
+        String temp = age;
+        if(age.length() == 1)
+            temp = "0" + age;
+        
+         for (int i = 1; i < listContacts.size(); i++) {
+            if ((listContacts.get(i).getAge()).compareTo(temp) > 0)
+                answer +=  listContacts.get(i).getNom() + " a plus de " + age + " ans. \n";
+       }
+         
+         if(answer.isEmpty())
+             answer = "Personne n'a plus de " + age + " ans.";
+         
+        return answer;
+        
         
     }
     
@@ -281,7 +291,7 @@ public class ContactPlugin {
      * @param name name of the contact
      * @return mail list of the contact or not
      */
-    public String Mail(String name){
+    public String mail(String name){
         
          String answer = "";
      

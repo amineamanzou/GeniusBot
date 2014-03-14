@@ -19,6 +19,7 @@ public class Contact{
     private String sexe;
     private String adresse;
     private String surnom;
+    private String age;
     private ArrayList<String> mails;
     private ArrayList<String> telephones;
 
@@ -32,7 +33,7 @@ public class Contact{
      * @param mails
      * @param telephones 
      */
-    public Contact(String nom, String naissance, String sexe, String adresse, String surnom,  ArrayList<String> mails, ArrayList<String> telephones) {
+    public Contact(String nom, String naissance, String sexe, String adresse, String surnom,  ArrayList<String> mails, ArrayList<String> telephones, String age) {
         this.nom = nom;
         this.naissance = naissance;
         this.sexe = sexe;
@@ -40,6 +41,7 @@ public class Contact{
         this.surnom = surnom;
         this.mails = mails;
         this.telephones = telephones;
+        this.age = age;
     }
     
     
@@ -61,6 +63,10 @@ public class Contact{
      */
     public String getNom() {
         return nom;
+    }
+    
+     public String getAge() {
+        return age;
     }
     
     /**

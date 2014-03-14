@@ -80,8 +80,8 @@ public class ContactTest {
     public void testGetNaissance() {
         System.out.println("getNaissance");
         Contact instance = null;
-        Date expResult = null;
-        Date result = instance.getNaissance();
+        String expResult = null;
+        String result = instance.getNaissance();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
