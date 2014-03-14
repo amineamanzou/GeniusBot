@@ -177,7 +177,7 @@ public class Parser {
                 String target = el.getAttribute("target");
                 String className = el.getAttribute("className");
                 String method = el.getAttribute("method");
-                String arg = el.getAttribute("arg");
+                String defaultArg = el.getAttribute("defaultArg");
                 String variable = el.getAttribute("variable");
                 int points = 0;
                 try{
@@ -198,7 +198,7 @@ public class Parser {
                     word = word.trim();
                     
                     // Building a new keyword
-                    Keyword keyword = new Keyword(word, target, className, variable, method, points,learn );
+                    Keyword keyword = new Keyword(word, target, className, variable, method, points, learn, defaultArg);
 
                     // Adding the keyword to keywords array list
                     keywords.add(keyword);

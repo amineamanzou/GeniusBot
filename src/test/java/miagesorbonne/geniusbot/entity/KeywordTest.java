@@ -21,7 +21,7 @@ public class KeywordTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        Keyword instance = new Keyword("2", null, null, null, null, 3, null);
+        Keyword instance = new Keyword("2", null, null, null, null, 3, null, null);
         String expResult = "2";
         String result = instance.getId();
         assertEquals(expResult, result);
@@ -34,7 +34,7 @@ public class KeywordTest {
     public void testSetId() {
         System.out.println("setId");
         String id = "4";
-        Keyword instance = new Keyword("2", null, null, null, null, 3, null);
+        Keyword instance = new Keyword("2", null, null, null, null, 3, null, null);
         instance.setId(id);
         String result = instance.getId();
         assertEquals(id, result);

@@ -22,6 +22,8 @@ public class Keyword implements Entity {
     public String variable = "";
     // The value if the name of the variable is set
     public String variableValue = " ";
+    // If the method doesn't need a variable but a static string defined in the XML
+    public String defaultArg = "empty";
     // If the Step could learn something to the automate
     public String learn = "";
     
@@ -38,8 +40,9 @@ public class Keyword implements Entity {
      * @param points
      * @param learn
      * @param variable
+     * @param defaultArg
      */
-    public Keyword(String keyword, String target, String className, String variable, String method, int points, String learn) {
+    public Keyword(String keyword, String target, String className, String variable, String method, int points, String learn, String defaultArg) {
         this.id = keyword;
         this.keyword = keyword;
         this.target = target;
@@ -48,6 +51,7 @@ public class Keyword implements Entity {
         this.method = method;
         this.learn = learn;
         this.points = points;
+        this.defaultArg = defaultArg;
     }
 
     /**
