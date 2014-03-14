@@ -32,6 +32,7 @@ public class BotController {
     // The used parser to read config.xml
     Bot bot;
     Parser parser;
+    Object plugin; //Where plugin is loaded
 
     /**
      * Default constructor
@@ -43,6 +44,7 @@ public class BotController {
         this.bot = bot;
         this.parser = parser;
         regex = new HashMap<String, String>();
+        this.plugin = new Object();
     }
 
     /**
@@ -116,14 +118,19 @@ public class BotController {
 
                 try {
                     Class<?> c = Class.forName("miagesorbonne.geniusbot.plugins."+match.className);
-                    Object obj = c.newInstance();
+                    if(plugin.getClass().getName().equals("java.lang.Object")){
+                        plugin = c.newInstance();
+                    }
+                    else if(!plugin.getClass().getName().equals("miagesorbonne.geniusbot.plugins."+match.className)){
+                        plugin = c.newInstance();
+                    }
                     Class[] parameterTypes = new Class[] { String.class };
                     Method  method = c.getDeclaredMethod(match.method, parameterTypes);
                     if(match.variableValue.isEmpty()){
-                        answer = (String)method.invoke(obj, match.defaultArg);
+                        answer = (String)method.invoke(plugin, match.defaultArg);
                     }
                     else {
-                        answer = (String)method.invoke(obj, match.variableValue);
+                        answer = (String)method.invoke(plugin, match.variableValue);
                     }
                 } catch (ClassNotFoundException e){
                     Logger.getLogger(BotController.class.getName()).log(Level.SEVERE, null, e);
