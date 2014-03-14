@@ -250,7 +250,7 @@ public class CalendarPlugin {
         for (int i = 0; i < listCal.size(); i++) {
             if (listCal.get(i).getDebut().after(Calendar.getInstance())) {
                 for (int y = 0; y < listCal.get(i).getParticipants().size(); y++) {
-                    if (listCal.get(i).getParticipants().get(y).equals(name)) {
+                    if (listCal.get(i).getParticipants().get(y).toLowerCase().equals(name)) {
                         next = true;
                         break;
                     }
