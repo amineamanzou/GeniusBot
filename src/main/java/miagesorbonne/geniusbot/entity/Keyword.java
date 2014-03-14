@@ -21,7 +21,7 @@ public class Keyword implements Entity {
     // If there is the a variable : [name]
     public String variable = "";
     // The value if the name of the variable is set
-    public String variableValue = "";
+    public String variableValue = " ";
     // If the Step could learn something to the automate
     public String learn = "";
     
