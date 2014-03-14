@@ -55,14 +55,14 @@ public class CalendarPlugin {
     public void read() {
         try {
             br = new BufferedReader(new FileReader(csvFile));
-
+            
             while ((line = br.readLine()) != null) {
                 String[] cal = line.split(splitBy);
-
+                
                 int i = 0;
-                while (i < cal.length) {
+                //while (i < cal.length) {
                     String titre = cal[i++];
-
+                    System.out.println("test ->>>" + i);
                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                     String d = cal[i++];
                     Date date = null;
@@ -102,7 +102,7 @@ public class CalendarPlugin {
                     Calendars c = new Calendars(titre, cDeb, cFin, participants, lieu);
                     listCal.add(c);
                 }
-            }
+            //}
 
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
