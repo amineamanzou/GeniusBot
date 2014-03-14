@@ -236,7 +236,7 @@ public class ContactPlugin {
      
        for (int i = 1; i < listContacts.size(); i++) {
             if ((listContacts.get(i).getAdresse()).equals(city.toLowerCase()))
-                answer +=  listContacts.get(i).getNom() + " vit bien à " + city + "\n";
+                answer +=  listContacts.get(i).getNom() + " vit bien à " + city + " \n";
        }
        
        if(answer.isEmpty())
