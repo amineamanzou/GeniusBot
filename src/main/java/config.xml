@@ -31,6 +31,10 @@
             <keyword className="ContactPlugin" method="mail" variable="essai">.*Quel est le mail de ([a-zA-z]+ [a-zA-z]+).*</keyword>
             <keyword className="ContactPlugin" method="whoHasMore" variable="essai">.*Qui a plus de ([0-9]+).*</keyword>
                                 
+            <keyword className="MeteoPlugin" method="getResponse" defaultArg="now">fait-il</keyword>
+            <keyword className="MeteoPlugin" method="getResponse" defaultArg="demain">fera-t-il demain</keyword>
+            <keyword className="MeteoPlugin" method="getResponse" defaultArg="apresdemain">fera-t-il après demain</keyword>
+            
         </keywords>
     </Step>
 
