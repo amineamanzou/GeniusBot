@@ -13,6 +13,10 @@
         <keywords>
       
             <keyword className="CalendarPlugin" method="getNextMeeting" variable="name">.*verrai ([a-zA-z]+).*</keyword>
+            <keyword className="CalendarPlugin" method="getHours" defaultArg="empty">quel heure</keyword>
+            <keyword className="CalendarPlugin" method="getProgrammeJournee" defaultArg="empty">programme journee,programme journée,aujourd'hui</keyword>
+            <keyword className="CalendarPlugin" method="getProgrammeSemaine" defaultArg="empty">programme semaine</keyword>
+            <keyword className="CalendarPlugin" method="getNextRDV" defaultArg="empty">prochain rdv,prochain rendez</keyword>
             
             
             <keyword className="ContactPlugin" method="knowsHim" variable="essai">.*Connais-tu ([a-zA-z]+ [a-zA-z]+).*</keyword>
@@ -26,8 +30,7 @@
             <keyword className="ContactPlugin" method="whoLivesIn" variable="essai">.*Qui habite à ([a-zA-z]+).*</keyword>
             <keyword className="ContactPlugin" method="mail" variable="essai">.*Quel est le mail de ([a-zA-z]+ [a-zA-z]+).*</keyword>
             <keyword className="ContactPlugin" method="whoHasMore" variable="essai">.*Qui a plus de ([0-9]+).*</keyword>
-            
-            
+                                
         </keywords>
     </Step>
 
