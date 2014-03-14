@@ -119,7 +119,7 @@ public class BotController {
                     Object obj = c.newInstance();
                     Class[] parameterTypes = new Class[] { String.class };
                     Method  method = c.getDeclaredMethod(match.method, parameterTypes);
-                    answer = (String)method.invoke(obj, match.arg);
+                    answer = (String)method.invoke(obj, match.variableValue);
                 } catch (ClassNotFoundException e){
                     Logger.getLogger(BotController.class.getName()).log(Level.SEVERE, null, e);
                     System.err.println(e.getMessage());

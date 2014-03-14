@@ -198,7 +198,7 @@ public class Parser {
                     word = word.trim();
                     
                     // Building a new keyword
-                    Keyword keyword = new Keyword(word, target, className, arg, variable, method, points,learn );
+                    Keyword keyword = new Keyword(word, target, className, variable, method, points,learn );
 
                     // Adding the keyword to keywords array list
                     keywords.add(keyword);

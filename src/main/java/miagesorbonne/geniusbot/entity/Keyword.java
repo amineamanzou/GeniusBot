@@ -18,8 +18,6 @@ public class Keyword implements Entity {
     public String className = "";
     // If there is a className we need a method to call
     public String method = "";
-    // If there is an argument with this class
-    public String arg = "";
     // If there is the a variable : [name]
     public String variable = "";
     // The value if the name of the variable is set
@@ -37,17 +35,15 @@ public class Keyword implements Entity {
      * @param target
      * @param className
      * @param method
-     * @param arg
      * @param points
      * @param learn
      * @param variable
      */
-    public Keyword(String keyword, String target, String className, String arg, String variable, String method, int points, String learn) {
+    public Keyword(String keyword, String target, String className, String variable, String method, int points, String learn) {
         this.id = keyword;
         this.keyword = keyword;
         this.target = target;
         this.className = className;
-        this.arg = arg;
         this.variable = variable;
         this.method = method;
         this.learn = learn;
