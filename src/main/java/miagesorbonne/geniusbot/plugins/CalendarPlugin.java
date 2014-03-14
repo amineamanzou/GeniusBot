@@ -347,9 +347,10 @@ public class CalendarPlugin {
      * @return
      */
     public String setRDVTitre(String titre) {
-        String answer = "";
+        String answer = "ok";
         listCal.add(new Calendars());
         listCal.get(listCal.size() - 1).setTitre(titre);
+        System.out.println("sdfsdfsdfsdfsfd");
         return answer;
     }
 

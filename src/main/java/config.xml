@@ -12,6 +12,8 @@
         <message>De quoi as-tu besoin ?</message>
         <keywords>
       
+            <keyword target="10">prendre rdv, prendre rendez</keyword>
+            
             <keyword className="CalendarPlugin" method="getNextMeeting" variable="name">.*verrai ([a-zA-z]+).*</keyword>
             <keyword className="CalendarPlugin" method="getHours" defaultArg="empty">quel heure</keyword>
             <keyword className="CalendarPlugin" method="getProgrammeJournee" defaultArg="empty">programme journee,programme journée,aujourd'hui</keyword>
@@ -105,6 +107,18 @@
         </keywords>
     </Step>
     
+    <Step id="10">
+        <message>Quel est le nom de votre évenement ?</message>
+        <keywords>
+            <keyword className="CalendarPlugin" method="setRDVTitre" variable="name" target="11">([a-zA-z]+)</keyword>
+        </keywords>
+    </Step>
+    <Step id="11">
+        <message>Quand aura lieu l'evenement et de quel heure a quel heure ?</message>
+        <keywords>
+            <keyword className="CalendarPlugin" method="setRDVDate" variable="name" target="1">([a-zA-z]+)</keyword>
+        </keywords>
+    </Step>
     
     
     <MessagesInvalid>
