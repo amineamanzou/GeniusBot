@@ -1,4 +1,4 @@
-package miagesorbonne.geniusbot.entity;
+package miagesorbonne.geniusbot.controller;
 
 import miagesorbonne.geniusbot.controller.Parser;
 import junit.framework.TestCase;
