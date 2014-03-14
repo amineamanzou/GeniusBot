@@ -76,9 +76,10 @@ public class CalendarPluginTest {
     @Test
     public void testGetProgrammeJournee() {
         System.out.println("getProgrammeJournee");
+        String empty = " ";
         CalendarPlugin instance = new CalendarPlugin();
         String expResult = "";
-        String result = instance.getProgrammeJournee();
+        String result = instance.getProgrammeJournee(empty);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -90,9 +91,10 @@ public class CalendarPluginTest {
     @Test
     public void testGetProgrammeSemaine() {
         System.out.println("getProgrammeSemaine");
+        String empty = " ";
         CalendarPlugin instance = new CalendarPlugin();
         String expResult = "";
-        String result = instance.getProgrammeSemaine();
+        String result = instance.getProgrammeSemaine(empty);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -148,9 +150,10 @@ public class CalendarPluginTest {
     @Test
     public void testGetHours() {
         System.out.println("getHours");
+        String empty = " ";
         CalendarPlugin instance = new CalendarPlugin();
         String expResult = "";
-        String result = instance.getHours();
+        String result = instance.getHours(empty);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -162,9 +165,10 @@ public class CalendarPluginTest {
     @Test
     public void testGetNextRDV() {
         System.out.println("getNextRDV");
+        String empty = " ";
         CalendarPlugin instance = new CalendarPlugin();
         String expResult = "";
-        String result = instance.getNextRDV();
+        String result = instance.getNextRDV(empty);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
