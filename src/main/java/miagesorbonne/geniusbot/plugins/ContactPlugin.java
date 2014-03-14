@@ -36,6 +36,7 @@ public class ContactPlugin {
      */
     public ContactPlugin() {
         this.listContacts = new ArrayList<Contact>();
+        read();
     }
     
     /**

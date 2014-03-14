@@ -11,10 +11,16 @@
     <Step id="1">
         <message>De quoi as-tu besoin ?</message>
         <keywords>
+<<<<<<< HEAD
             <keyword target="1">*</keyword>
             <keyword className="CalendarPlugin" method="getProgrammeJournee" arg=" ">programme journee, rdv aujourd'hui</keyword>
             <keyword className="CalendarPlugin" method="getProgrammeSemaine" arg=" ">programme semaine</keyword>
             <keyword className="CalendarPlugin" method="getHours" arg=" ">quel heure</keyword>
+=======
+            <keyword className="CalendarPlugin" method="getAnswer" arg="journee">programme journee</keyword>
+            <keyword target="10"> Connais tu ?</keyword>
+            <keyword className="ContactPlugin" method="knowsHim" arg="Alexandre Le Boucher" >connais tu </keyword>
+>>>>>>> FETCH_HEAD
         </keywords>
     </Step>
 
@@ -85,6 +91,19 @@
         </keywords>
     </Step>
     
+     <Step id="10">
+        <message>De qui parles tu ?</message>
+        <keywords>
+            <keyword target="11" variable="essai">([a-zA-Z ]+)</keyword>
+        </keywords>
+    </Step>
+    
+      <Step id="11">
+        <message>Alors tu parles bien de [essai] ?</message>
+        <keywords>
+            <keyword target="1">*</keyword>
+        </keywords>
+    </Step>
     
     <MessagesInvalid>
         <message>Oups, je n'ai pas compris.</message>
