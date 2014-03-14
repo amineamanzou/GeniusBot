@@ -12,8 +12,6 @@
         <message>De quoi as-tu besoin ?</message>
         <keywords>
             <keyword className="CalendarPlugin" method="getAnswer" arg="journee">programme journee</keyword>
-            <keyword target="10"> Connais tu ?</keyword>
-            <keyword className="ContactPlugin" method="knowsHim" arg="Alexandre Le Boucher" >connais tu </keyword>
         </keywords>
     </Step>
 
@@ -84,19 +82,7 @@
         </keywords>
     </Step>
     
-     <Step id="10">
-        <message>De qui parles tu ?</message>
-        <keywords>
-            <keyword target="11" variable="essai">([a-zA-Z ]+)</keyword>
-        </keywords>
-    </Step>
     
-      <Step id="11">
-        <message>Alors tu parles bien de [essai] ?</message>
-        <keywords>
-            <keyword target="1">*</keyword>
-        </keywords>
-    </Step>
     
     <MessagesInvalid>
         <message>Oups, je n'ai pas compris.</message>
