@@ -162,7 +162,7 @@ public class CalendarPlugin {
      * Return the program of the day
      * @return 
      */
-    public String getProgrammeJournee() {
+    public String getProgrammeJournee(String msg) {
         String answer = "";
         Calendar now = Calendar.getInstance();
         boolean prog = false;
@@ -188,7 +188,7 @@ public class CalendarPlugin {
      * Return the program of the week
      * @return 
      */
-    public String getProgrammeSemaine() {
+    public String getProgrammeSemaine(String msg) {
         String answer = "";
 
         List<Date> listDates = new ArrayList<Date>(25);
@@ -305,7 +305,7 @@ public class CalendarPlugin {
      * Get the current hour:minute:second
      * @return 
      */
-    public String getHours() {
+    public String getHours(String msg) {
         SimpleDateFormat date = new SimpleDateFormat("HH:mm:ss");
         return date.format(new Date());
     }
@@ -314,7 +314,7 @@ public class CalendarPlugin {
      * Return the next meeting
      * @return 
      */
-    public String getNextRDV() {
+    public String getNextRDV(String msg) {
         String answer = "";
 
         boolean next = false;
