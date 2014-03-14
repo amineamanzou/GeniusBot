@@ -23,6 +23,7 @@ public class MainCalendar {
         System.out.println("\nQuestion prochain RDV : \n" + test.getNextRDV("test"));
         System.out.println("\nQuestion prochain rencontre : \n" + test.getNextMeeting("Test"));
         System.out.println("\nQuestion programme semaine : \n" + test.getProgrammeSemaine("test"));
-        System.out.println("\nPrendre RDV : \n" + test.setRDV("Prend rendez-vous avec Michel Durand lundi à 18h à Paris"));
+        System.out.println("\nPrendre RDV : \n" + test.setRDVTitre("testLieu"));
+        System.out.println("\nPrendre RDV : \n" + test.setRDVDate("19/03/2014 de 9:00 a 10:00"));
     }
 }

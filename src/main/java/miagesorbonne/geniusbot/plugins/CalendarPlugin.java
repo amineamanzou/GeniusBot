@@ -13,8 +13,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Calendar PLugin that add calendar functionnality to the bot
@@ -296,18 +294,6 @@ public class CalendarPlugin {
     }
 
     /**
-     * Save a new meeting event
-     *
-     * @param message
-     * @return
-     */
-    public String setRDV(String message) {
-        String answer = "";
-
-        return answer;
-    }
-
-    /**
      * Get the current hour:minute:second
      *
      * @return
@@ -351,6 +337,68 @@ public class CalendarPlugin {
             answer += " de " + listCal.get(nearestDate).getHeureDeb() + " à " + listCal.get(nearestDate).getHeureFin();
         }
 
+        return answer;
+    }
+
+    /**
+     * Save a new meeting event
+     *
+     * @param titre
+     * @return
+     */
+    public String setRDVTitre(String titre) {
+        String answer = "";
+        listCal.add(new Calendars());
+        listCal.get(listCal.size() - 1).setTitre(titre);
+        return answer;
+    }
+
+    //19/03/2014 de 9:00 a 10:00
+    public String setRDVDate(String message) {
+        String answer = "";
+
+        String[] msg = message.split(" ");
+     
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String hDeb = msg[0] + " " + msg[2];
+        Date heureDeb = null;
+        Calendar cDeb = Calendar.getInstance();
+
+        try {
+            heureDeb = formatter.parse(hDeb);
+            cDeb.setTime(heureDeb);
+        } catch (ParseException ex) {
+            Logger.getLogger(CalendarPlugin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String hFin = msg[0] + " " + msg[4];
+        Date heureFin = null;
+        Calendar cFin = Calendar.getInstance();
+
+        try {
+            heureFin = formatter.parse(hFin);
+            cFin.setTime(heureFin);
+        } catch (ParseException ex) {
+            Logger.getLogger(CalendarPlugin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        listCal.get(listCal.size() - 1).setDebut(cDeb);
+        listCal.get(listCal.size() - 1).setFin(cFin);
+
+        return answer;
+    }
+
+    public String setRDVParticipant(String message) {
+        String answer = "";
+        ArrayList<String> p = new ArrayList<String>();
+        p.add(message);
+        listCal.get(listCal.size() - 1).setParticipants(p);
+        return answer;
+    }
+
+    public String setRDVLieu(String lieu) {
+        String answer = "";
+        listCal.get(listCal.size() - 1).setLieu(lieu);
         return answer;
     }
 

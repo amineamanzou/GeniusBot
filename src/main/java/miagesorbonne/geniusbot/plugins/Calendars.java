@@ -20,19 +20,19 @@ public class Calendars {
     private Calendar fin;
     private ArrayList<String> participants;
     private String lieu;
-    
+
     private String date;
     private String heureDeb;
     private String heureFin;
 
     /**
      * Main constructor of a single event
-     * 
+     *
      * @param titre
      * @param heureDeb
      * @param heureFin
      * @param participants
-     * @param lieu 
+     * @param lieu
      */
     public Calendars(String titre, Calendar heureDeb, Calendar heureFin, ArrayList<String> participants, String lieu) {
         this.titre = titre;
@@ -40,21 +40,53 @@ public class Calendars {
         this.fin = heureFin;
         this.participants = participants;
         this.lieu = lieu;
-        
+
         this.date = days(debut);
         this.heureDeb = hours(debut);
         this.heureFin = hours(fin);
     }
 
+    public Calendars() {
+        this.titre = "";
+        this.debut = null;
+        this.fin = null;
+        this.participants = null;
+        this.lieu = null;
+    }
+
+    public void setDebut(Calendar debut) {
+        this.debut = debut;
+        this.date = days(debut);
+        this.heureDeb = hours(debut);
+    }
+
+    public void setFin(Calendar fin) {
+        this.fin = fin;
+        this.heureFin = hours(fin);
+    }
+    
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public void setParticipants(ArrayList<String> participants) {
+        this.participants = participants;
+    }
+
+    public void setLieu(String lieu) {
+        this.lieu = lieu;
+    }
+
     @Override
     public String toString() {
-        String message = "Titre: " + titre + "- Date: " + date + " , "+ debut.getTime()+" - Heure de début: " + heureDeb + " - Heure de fin: " + heureFin;
+        String message = "Titre: " + titre + "- Date: " + date + " , " + debut.getTime() + " - Heure de début: " + heureDeb + " - Heure de fin: " + heureFin;
         message += " - Participants: " + participants.toString() + " - Lieu: " + lieu;
         return message;
     }
 
     /**
      * Get the title of the event
+     *
      * @return title
      */
     public String getTitre() {
@@ -63,6 +95,7 @@ public class Calendars {
 
     /**
      * Get the list of participants to the event
+     *
      * @return participants
      */
     public ArrayList<String> getParticipants() {
@@ -71,6 +104,7 @@ public class Calendars {
 
     /**
      * Get the place where will be the event
+     *
      * @return place
      */
     public String getLieu() {
@@ -79,6 +113,7 @@ public class Calendars {
 
     /**
      * Get the begining date of the event
+     *
      * @return begin
      */
     public Calendar getDebut() {
@@ -87,7 +122,8 @@ public class Calendars {
 
     /**
      * Get the date of the end of the event
-     * @return 
+     *
+     * @return
      */
     public Calendar getFin() {
         return fin;
@@ -95,6 +131,7 @@ public class Calendars {
 
     /**
      * Get the date of the event
+     *
      * @return date
      */
     public String getDate() {
@@ -103,6 +140,7 @@ public class Calendars {
 
     /**
      * Get the hour when begin the event
+     *
      * @return hourBegin
      */
     public String getHeureDeb() {
@@ -111,6 +149,7 @@ public class Calendars {
 
     /**
      * Get the hour when end the event
+     *
      * @return hourEnd
      */
     public String getHeureFin() {
@@ -119,8 +158,9 @@ public class Calendars {
 
     /**
      * Get the hour part of the date
+     *
      * @param cal
-     * @return 
+     * @return
      */
     public String hours(Calendar cal) {
         int hh = cal.get(Calendar.HOUR_OF_DAY);
@@ -131,11 +171,12 @@ public class Calendars {
 
         return (heureS + ":" + minutesS);
     }
-    
+
     /**
      * Get the day part of the date
+     *
      * @param cal
-     * @return 
+     * @return
      */
     public String days(Calendar cal) {
         int dd = cal.get(Calendar.DATE);
