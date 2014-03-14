@@ -11,11 +11,11 @@
     <Step id="1">
         <message>De quoi as-tu besoin ?</message>
         <keywords>
-
-            <keyword target="1">*</keyword>
-            <keyword className="CalendarPlugin" method="getProgrammeJournee" arg=" ">programme journee, rdv aujourd'hui</keyword>
-            <keyword className="CalendarPlugin" method="getProgrammeSemaine" arg=" ">programme semaine</keyword>
-            <keyword className="CalendarPlugin" method="getHours" arg=" ">quel heure</keyword>
+      
+            <keyword className="ContactPlugin" method="knowsHim" variable="essai">.*Connais-tu ([a-zA-z]+ [a-zA-z]+).*</keyword>
+            <keyword className="ContactPlugin" method="whereLeaves" variable="essai">.*Où habite ([a-zA-z]+ [a-zA-z]+).*</keyword>
+            <keyword className="ContactPlugin" method="whereLeaves" variable="essai">.*Où vit ([a-zA-z]+ [a-zA-z]+).*</keyword>
+            <keyword className="ContactPlugin" method="allAboutHim" variable="essai">.*Dis moi tout ce que tu sais sur ([a-zA-z]+ [a-zA-z]+).*</keyword>
             
         </keywords>
     </Step>

@@ -68,13 +68,13 @@ public class ContactPlugin {
                    
                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                     String naissance = contact[i++];
-                    Date date = null;
+                    /*Date date = null;
 
                     try {
                         date = formatter.parse(naissance);
                     } catch (ParseException ex) {
                         Logger.getLogger(ContactPlugin.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    } */
                     String sexe = contact[i++];
                     String adresse = contact[i++];
                     String surnom = contact[i++];
@@ -82,7 +82,7 @@ public class ContactPlugin {
                     ArrayList<String> telephones = new ArrayList<String>(Arrays.asList(contact[i++].split(listSplit)));
                    
 
-                    Contact c = new Contact(nom, date, sexe, adresse, surnom, mails, telephones);
+                    Contact c = new Contact(nom, naissance, sexe, adresse, surnom, mails, telephones);
                     listContacts.add(c);
                 }
             }
@@ -229,7 +229,7 @@ public class ContactPlugin {
         String answer = "";
      
         if (exists(name)) {
-            answer = name + "habite : " + informations(name,"adresse");
+            answer = name + " habite  " + informations(name,"adresse");
         } else {
             answer = "Nous ne connaissons personne de ce nom la !";
         }

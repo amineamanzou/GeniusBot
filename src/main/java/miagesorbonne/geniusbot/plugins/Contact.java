@@ -15,7 +15,7 @@ import java.util.Date;
 public class Contact{
     
     private String nom;
-    private Date naissance;
+    private String naissance;
     private String sexe;
     private String adresse;
     private String surnom;
@@ -32,7 +32,7 @@ public class Contact{
      * @param mails
      * @param telephones 
      */
-    public Contact(String nom, Date naissance, String sexe, String adresse, String surnom,  ArrayList<String> mails, ArrayList<String> telephones) {
+    public Contact(String nom, String naissance, String sexe, String adresse, String surnom,  ArrayList<String> mails, ArrayList<String> telephones) {
         this.nom = nom;
         this.naissance = naissance;
         this.sexe = sexe;
@@ -83,7 +83,7 @@ public class Contact{
      * Get the birth day of the contact
      * @return birthday 
      */
-    public Date getNaissance(){
+    public String getNaissance(){
         
         return naissance;
     }
