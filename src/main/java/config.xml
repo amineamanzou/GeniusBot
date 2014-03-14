@@ -12,10 +12,21 @@
         <message>De quoi as-tu besoin ?</message>
         <keywords>
       
+            <keyword className="CalendarPlugin" method="getNextMeeting" variable="name">.*verrai ([a-zA-z]+).*</keyword>
+            
+            
             <keyword className="ContactPlugin" method="knowsHim" variable="essai">.*Connais-tu ([a-zA-z]+ [a-zA-z]+).*</keyword>
             <keyword className="ContactPlugin" method="whereLeaves" variable="essai">.*Où habite ([a-zA-z]+ [a-zA-z]+).*</keyword>
             <keyword className="ContactPlugin" method="whereLeaves" variable="essai">.*Où vit ([a-zA-z]+ [a-zA-z]+).*</keyword>
             <keyword className="ContactPlugin" method="allAboutHim" variable="essai">.*Dis moi tout ce que tu sais sur ([a-zA-z]+ [a-zA-z]+).*</keyword>
+            <keyword className="ContactPlugin" method="allAboutHim" variable="essai">.*Qui est ([a-zA-z]+ [a-zA-z]+).*</keyword>
+            <keyword className="ContactPlugin" method="whenBorns" variable="essai">.*Quand est né ([a-zA-z]+ [a-zA-z]+).*</keyword>
+            <keyword className="ContactPlugin" method="whenBorns" variable="essai">.*Quelle est la date de naissance de ([a-zA-z]+ [a-zA-z]+).*</keyword>
+            <keyword className="ContactPlugin" method="phone" variable="essai">.*Quel est le numéro de téléphone de ([a-zA-z]+ [a-zA-z]+).*</keyword>
+            <keyword className="ContactPlugin" method="whoLivesIn" variable="essai">.*Qui habite à ([a-zA-z]+).*</keyword>
+            <keyword className="ContactPlugin" method="mail" variable="essai">.*Quel est le mail de ([a-zA-z]+ [a-zA-z]+).*</keyword>
+            <keyword className="ContactPlugin" method="whoHasMore" variable="essai">.*Qui a plus de ([0-9]+).*</keyword>
+            
             
         </keywords>
     </Step>
