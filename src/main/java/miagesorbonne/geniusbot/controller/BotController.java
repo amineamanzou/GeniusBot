@@ -115,7 +115,6 @@ public class BotController {
         } else {
            
             if (match.className.length() > 0) {
-
                 try {
                     Class<?> c = Class.forName("miagesorbonne.geniusbot.plugins."+match.className);
                     if(plugin.getClass().getName().equals("java.lang.Object")){
@@ -154,7 +153,9 @@ public class BotController {
                     Logger.getLogger(BotController.class.getName()).log(Level.SEVERE, null, ex);
                     System.err.println(ex.getMessage());
                 }
-                            
+                if(match.target.length() > 0){
+                    bot.step = match.target;
+                }
             } else {
                 // Getting the new step and return the new answer
                 if (answer.length() == 0) {
