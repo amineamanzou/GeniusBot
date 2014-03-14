@@ -23,7 +23,6 @@ import java.util.logging.Logger;
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */
 public class ContactPlugin {
-
     
     String csvFile = "./src/main/java/contact.csv";
     BufferedReader br;
@@ -32,21 +31,27 @@ public class ContactPlugin {
     String listSplit = "-";
     ArrayList<Contact> listContacts;
     
-    
-    
+    /**
+     * Main constructor of the contact plugin
+     */
     public ContactPlugin() {
         this.listContacts = new ArrayList<Contact>();
     }
-
-   
-     public void listContact() {
+    
+    /**
+     * Display the list of contact
+     * @TODO Iterator on the listContact ... @AlexLB
+     */
+    public void listContact() {
         System.out.println(listContacts.get(0).toString());
         System.out.println(listContacts.get(1).toString());
         System.out.println(listContacts.get(2).toString());
         System.out.println(listContacts.get(3).toString());
     }
     
-    
+    /**
+     * Parsing the CSV file
+     */
     public void read() {
         try {
             br = new BufferedReader(new FileReader(csvFile));
@@ -94,9 +99,9 @@ public class ContactPlugin {
     }
     
     /**
-     * Fonction qui retourne un booléen pour savoir si un contact existe ou non en fonction de son nom
-     * @param name nom du contact
-     * @return true si le nom existe, non sinon
+     * Return if a contact exist according to his name
+     * @param name name of the contact
+     * @return true if the name exist, else false
      */
     public Boolean exists(String name){
         
@@ -111,9 +116,13 @@ public class ContactPlugin {
         return temp;
     }
     
-    
-    
-    
+    /**
+     * Return a specific information according to the name of the contact and 
+     * displaying it in a sentence.
+     * @param name
+     * @param infos
+     * @return String information required
+     */
     public String information(String name, String infos){
         
          String answer = "";
@@ -155,12 +164,11 @@ public class ContactPlugin {
         
     }
     
-    
     /**
-     * Fonction qui retourne l'information en fonction du nom et de l'information que l'on veut
-     * @param name nom du contact
-     * @param infos l'information recherchée
-     * @return l'information recherchée
+     * Method used to retrieve the right information without displaying it
+     * @param name name of the contact
+     * @param infos type of informaton
+     * @return searched information
      */
     private String informations(String name, String infos){
         
@@ -191,9 +199,9 @@ public class ContactPlugin {
     
     
     /**
-     * Fonction qui retourne si un contact existe ou non en donnant son nom
-     * @param name nom du contact
-     * @return le nom du contact ou non
+     * Method returning if a contact exist or not
+     * @param name name of the contact
+     * @return the name of the contact or an empty name
      */
     public String knowsHim(String name){
         
@@ -211,9 +219,9 @@ public class ContactPlugin {
     
  
     /**
-     * Fonction qui retourne l'adresse d'un contact si il existe
-     * @param name nom du contact
-     * @return l'adresse du contact ou non
+     * Get the adress of the contact in a sentence if it exist
+     * @param name name of the contact
+     * @return The adresse of the contact or empty
      */
     public String whereLeaves(String name){
      
@@ -230,9 +238,9 @@ public class ContactPlugin {
     
     
     /**
-     * Retourne toutes les informations disponibles sur le contact
-     * @param name nom du contact
-     * @return les informations du contact ou non
+     * Get All the informaiton about the contact according to his name
+     * @param name name of the contact
+     * @return informations about contact or empty
      */
     public String allAboutHim(String name){
         
@@ -250,9 +258,9 @@ public class ContactPlugin {
     
     
     /**
-     * Retourne les numéros de téléphone du contact
-     * @param name nom du contact
-     * @return les numéros de téléphone ou non
+     * Get the phone numbers list of the contact in a sentence
+     * @param name name of the contact
+     * @return phone list or not
      */
     public String phone(String name){
         
@@ -268,9 +276,9 @@ public class ContactPlugin {
     }
     
     /**
-     * Retourne les mails du contact
-     * @param name nom du contact
-     * @return les mails du contact ou non
+     * Get the mail list of the contact in a sentence
+     * @param name name of the contact
+     * @return mail list of the contact or not
      */
     public String Mail(String name){
         

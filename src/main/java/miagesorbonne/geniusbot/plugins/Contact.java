@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package miagesorbonne.geniusbot.plugins;
 
 import java.text.DateFormat;
@@ -12,13 +6,12 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- *
- *  *
+ * Contact class representing one contact entity
+ * 
  * @author Alexandre Le Boucher <alex.leboucher.inef@gmail.com>
  * @author Shinthujan Sivakumar <shinthujan.sivakumar@gmail.com>
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */
- 
 public class Contact{
     
     private String nom;
@@ -29,8 +22,17 @@ public class Contact{
     private ArrayList<String> mails;
     private ArrayList<String> telephones;
 
-    
-     public Contact(String nom, Date naissance, String sexe, String adresse, String surnom,  ArrayList<String> mails, ArrayList<String> telephones) {
+    /**
+     * Main constructor of a contact
+     * @param nom
+     * @param naissance
+     * @param sexe
+     * @param adresse
+     * @param surnom
+     * @param mails
+     * @param telephones 
+     */
+    public Contact(String nom, Date naissance, String sexe, String adresse, String surnom,  ArrayList<String> mails, ArrayList<String> telephones) {
         this.nom = nom;
         this.naissance = naissance;
         this.sexe = sexe;
@@ -54,61 +56,60 @@ public class Contact{
   
 
     /**
-     * @return the nom
+     * Get the name of the contact
+     * @return name
      */
     public String getNom() {
         return nom;
     }
-
     
-     /**
-     * @return the surnom
+    /**
+     * Get the pseudo of the contact
+     * @return pseudo
      */
     public String getSurnom() {
         return surnom;
     }
 
-     /**
-     * @return the adresse
+    /**
+     * Get the adress of a contact
+     * @return address
      */
     public String getAdresse() {
         return adresse;
     }
 
-        /**
-         * 
-         * @return la naissance 
-         */
+    /**
+     * Get the birth day of the contact
+     * @return birthday 
+     */
     public Date getNaissance(){
         
         return naissance;
     }
-    
-
 
     /**
-     * @return the sexe
+     * Get the sexe of the contact
+     * @return sexe
      */
     public String getSexe() {
         return sexe;
     }
-
-
+    
     /**
-     * @return the mail
+     * Get the email list of the contact
+     * @return email
      */
     public ArrayList<String> getMails() {
         return mails;
     }
     
-  
     /**
-     * @return the telephone
+     * Get the phone numbers list of the contact
+     * @return phone
      */
     public ArrayList<String> getTelephone() {
         return telephones;
     }
 
- 
-   
 }
