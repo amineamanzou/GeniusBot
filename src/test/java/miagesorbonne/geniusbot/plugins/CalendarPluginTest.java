@@ -1,5 +1,6 @@
 package miagesorbonne.geniusbot.plugins;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import org.junit.Test;
@@ -18,56 +19,16 @@ public class CalendarPluginTest {
     }
 
     /**
-     * Test of listCal method, of class CalendarPlugin.
-     */
-    @Test
-    public void testListCal() {
-        System.out.println("listCal");
-        CalendarPlugin instance = new CalendarPlugin();
-        instance.listCal();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of read method, of class CalendarPlugin.
-     */
-    @Test
-    public void testRead() {
-        System.out.println("read");
-        CalendarPlugin instance = new CalendarPlugin();
-        instance.read();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getAnswer method, of class CalendarPlugin.
      */
     @Test
     public void testGetAnswer() {
         System.out.println("getAnswer");
-        String question = "";
+        String question = "journee";
         CalendarPlugin instance = new CalendarPlugin();
-        String expResult = "";
+        String expResult = "Test";
         String result = instance.getAnswer(question);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getDateWithoutTime method, of class CalendarPlugin.
-     */
-    @Test
-    public void testGetDateWithoutTime() {
-        System.out.println("getDateWithoutTime");
-        Date date = null;
-        Date expResult = null;
-        Date result = CalendarPlugin.getDateWithoutTime(date);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -76,13 +37,11 @@ public class CalendarPluginTest {
     @Test
     public void testGetProgrammeJournee() {
         System.out.println("getProgrammeJournee");
-        String empty = " ";
+        String msg = "";
         CalendarPlugin instance = new CalendarPlugin();
-        String expResult = "";
-        String result = instance.getProgrammeJournee(empty);
+        String expResult = "Vous n'avez pas de programme aujourd'hui !";
+        String result = instance.getProgrammeJournee(msg);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -91,13 +50,11 @@ public class CalendarPluginTest {
     @Test
     public void testGetProgrammeSemaine() {
         System.out.println("getProgrammeSemaine");
-        String empty = " ";
+        String msg = "";
         CalendarPlugin instance = new CalendarPlugin();
-        String expResult = "";
-        String result = instance.getProgrammeSemaine(empty);
+        String expResult = "Votre programme de la semaine est le suivant :  - okokbssd le 16/2/2014 de 14:00 à 16:00 ";
+        String result = instance.getProgrammeSemaine(msg);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -130,33 +87,18 @@ public class CalendarPluginTest {
     }
 
     /**
-     * Test of setRDV method, of class CalendarPlugin.
-     */
-    @Test
-    public void testSetRDV() {
-        System.out.println("setRDV");
-        String message = "";
-        CalendarPlugin instance = new CalendarPlugin();
-        String expResult = "";
-        String result = instance.setRDV(message);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getHours method, of class CalendarPlugin.
      */
     @Test
     public void testGetHours() {
         System.out.println("getHours");
-        String empty = " ";
+        String msg = "";
         CalendarPlugin instance = new CalendarPlugin();
         String expResult = "";
-        String result = instance.getHours(empty);
+        SimpleDateFormat date = new SimpleDateFormat("HH:mm:ss");
+        expResult = date.format(new Date());
+        String result = instance.getHours(msg);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -165,13 +107,65 @@ public class CalendarPluginTest {
     @Test
     public void testGetNextRDV() {
         System.out.println("getNextRDV");
-        String empty = " ";
+        String msg = "";
+        CalendarPlugin instance = new CalendarPlugin();
+        String expResult = "Votre prochain rendez vous aura lieu le 16/2/2014 de 14:00 à 16:00";
+        String result = instance.getNextRDV(msg);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setRDVTitre method, of class CalendarPlugin.
+     */
+    @Test
+    public void testSetRDVTitre() {
+        System.out.println("setRDVTitre");
+        String titre = "Title";
+        CalendarPlugin instance = new CalendarPlugin();
+        String expResult = "ok";
+        String result = instance.setRDVTitre(titre);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setRDVDate method, of class CalendarPlugin.
+     */
+    @Test
+    public void testSetRDVDate() {
+        System.out.println("setRDVDate");
+        String message = "04/10/2014 de 4:00 a 5:00";
         CalendarPlugin instance = new CalendarPlugin();
         String expResult = "";
-        String result = instance.getNextRDV(empty);
+        String result = instance.setRDVDate(message);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setRDVParticipant method, of class CalendarPlugin.
+     */
+    @Test
+    public void testSetRDVParticipant() {
+        System.out.println("setRDVParticipant");
+        String message = "";
+        CalendarPlugin instance = new CalendarPlugin();
+        String expResult = "";
+        String result = instance.setRDVParticipant(message);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setRDVLieu method, of class CalendarPlugin.
+     */
+    @Test
+    public void testSetRDVLieu() {
+        System.out.println("setRDVLieu");
+        String lieu = "Paris";
+        CalendarPlugin instance = new CalendarPlugin();
+        String expResult = "";
+        String result = instance.setRDVLieu(lieu);
+        assertEquals(expResult, result);
     }
     
 }
