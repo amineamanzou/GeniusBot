@@ -12,13 +12,13 @@
         <message>De quoi as-tu besoin ?</message>
         <keywords>
       
-            <keyword target="10">prendre rdv, prendre rendez</keyword>
+            <keyword target="10">Prend un rdv,Prend un rendez,Prendre rdv,Prendre rendez</keyword>
             
-            <keyword className="CalendarPlugin" method="getNextMeeting" variable="name">.*verrai ([a-zA-z]+).*</keyword>
-            <keyword className="CalendarPlugin" method="getHours" defaultArg="empty">quel heure</keyword>
-            <keyword className="CalendarPlugin" method="getProgrammeJournee" defaultArg="empty">programme journee,programme journée,aujourd'hui</keyword>
-            <keyword className="CalendarPlugin" method="getProgrammeSemaine" defaultArg="empty">programme semaine</keyword>
-            <keyword className="CalendarPlugin" method="getNextRDV" defaultArg="empty">prochain rdv,prochain rendez</keyword>
+            <keyword className="CalendarPlugin" method="getNextMeeting" variable="name">Quand est ce que je verrai ([a-zA-z]+),verrai ([a-zA-z]+)</keyword>
+            <keyword className="CalendarPlugin" method="getHours" defaultArg="empty">Quel heure est-il,Quel heure,Heure</keyword>
+            <keyword className="CalendarPlugin" method="getProgrammeJournee" defaultArg="empty">Quel est le programme de la journée,Programme de la journée,Programme de la journee,Ai-je un rendez vous aujourd'hui,Aujourd'hui</keyword>
+            <keyword className="CalendarPlugin" method="getProgrammeSemaine" defaultArg="empty">Quel est le programme de la semaine,Programme de la semaine</keyword>
+            <keyword className="CalendarPlugin" method="getNextRDV" defaultArg="empty">Quand est mon prochain rendez-vous,Prochain RDV,Prochain rendez</keyword>
             
             
             <keyword className="ContactPlugin" method="knowsHim" variable="essai">.*Connais-tu ([a-zA-z]+ [a-zA-z]+).*</keyword>
@@ -43,11 +43,12 @@
     <Step id="2">
         <message>Salut [name], comment vas tu ?</message>
         <keywords>
-            <keyword target="3">Bien et toi ?,Cool,Sa roule</keyword>
+            <keyword target="3">Bien,Cool,Sa roule</keyword>
             <keyword target="4">Bof,pas trop,mal,triste</keyword>
-            <keyword target="5">Sa va,normal</keyword>
+            <keyword target="5">Ca va,normal</keyword>
             <keyword target="6">sais pas,sais rien</keyword>
             <keyword target="9">Je ne répondrai pas à ta question</keyword>
+            <keyword target="16">Et toi ?</keyword>
         </keywords>
     </Step>
     
@@ -142,6 +143,15 @@
         <message>Quel est son nom ?</message>
         <keywords>
             <keyword className="CalendarPlugin" method="addRDVParticipant" variable="name" target="14">([a-zA-z]+)</keyword>
+        </keywords>
+    </Step>
+    
+    <Step id="16">
+        <message>Je vais bien, merci</message>
+        <message>Un bot n'a pas d'humeur !</message>
+        <message>Tres bien, merci de t'en préocupper</message>
+        <keywords>
+            <keyword target="1">*</keyword>
         </keywords>
     </Step>
     

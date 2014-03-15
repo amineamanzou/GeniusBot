@@ -13,22 +13,8 @@ import static org.junit.Assert.*;
  * @author Amine Amanzou <amineamanzou@gmail.com>
  */
 public class CalendarsTest {
-    
-    public CalendarsTest() {
-    }
 
-    /**
-     * Test of toString method, of class Calendars.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Calendars instance = null;
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public CalendarsTest() {
     }
 
     /**
@@ -37,12 +23,11 @@ public class CalendarsTest {
     @Test
     public void testGetTitre() {
         System.out.println("getTitre");
-        Calendars instance = null;
-        String expResult = "";
+        Calendars instance = new Calendars();
+        instance.setTitre("testTitre");
+        String expResult = "testTitre";
         String result = instance.getTitre();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -51,12 +36,13 @@ public class CalendarsTest {
     @Test
     public void testGetParticipants() {
         System.out.println("getParticipants");
-        Calendars instance = null;
-        ArrayList<String> expResult = null;
+        Calendars instance = new Calendars();
+        ArrayList<String> expResult = new ArrayList<String>();
+        expResult.add("p1");
+        expResult.add("p2");
+        instance.setParticipants(expResult);
         ArrayList<String> result = instance.getParticipants();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -65,12 +51,11 @@ public class CalendarsTest {
     @Test
     public void testGetLieu() {
         System.out.println("getLieu");
-        Calendars instance = null;
-        String expResult = "";
+        Calendars instance = new Calendars();
+        instance.setLieu("testPlace");
+        String expResult = "testPlace";
         String result = instance.getLieu();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -79,12 +64,11 @@ public class CalendarsTest {
     @Test
     public void testGetDebut() {
         System.out.println("getDebut");
-        Calendars instance = null;
-        Calendar expResult = null;
+        Calendars instance = new Calendars();
+        Calendar expResult = Calendar.getInstance();
+        instance.setDebut(expResult);
         Calendar result = instance.getDebut();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -93,84 +77,10 @@ public class CalendarsTest {
     @Test
     public void testGetFin() {
         System.out.println("getFin");
-        Calendars instance = null;
-        Calendar expResult = null;
+        Calendars instance = new Calendars();
+        Calendar expResult = Calendar.getInstance();
+        instance.setFin(expResult);
         Calendar result = instance.getFin();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of getDate method, of class Calendars.
-     */
-    @Test
-    public void testGetDate() {
-        System.out.println("getDate");
-        Calendars instance = null;
-        String expResult = "";
-        String result = instance.getDate();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getHeureDeb method, of class Calendars.
-     */
-    @Test
-    public void testGetHeureDeb() {
-        System.out.println("getHeureDeb");
-        Calendars instance = null;
-        String expResult = "";
-        String result = instance.getHeureDeb();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getHeureFin method, of class Calendars.
-     */
-    @Test
-    public void testGetHeureFin() {
-        System.out.println("getHeureFin");
-        Calendars instance = null;
-        String expResult = "";
-        String result = instance.getHeureFin();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of hours method, of class Calendars.
-     */
-    @Test
-    public void testHours() {
-        System.out.println("hours");
-        Calendar cal = null;
-        Calendars instance = null;
-        String expResult = "";
-        String result = instance.hours(cal);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of days method, of class Calendars.
-     */
-    @Test
-    public void testDays() {
-        System.out.println("days");
-        Calendar cal = null;
-        Calendars instance = null;
-        String expResult = "";
-        String result = instance.days(cal);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }

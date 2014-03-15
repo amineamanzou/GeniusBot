@@ -343,7 +343,7 @@ public class CalendarPlugin {
     }
 
     /**
-     * Save a new meeting event
+     * Save a new meeting title in the arraylist
      *
      * @param titre
      * @return
@@ -355,6 +355,12 @@ public class CalendarPlugin {
         return answer;
     }
 
+    /**
+     * Save a new meeting date and hours in the arraylist
+     * 
+     * @param message
+     * @return 
+     */
     public String setRDVDate(String message) {
         String answer = "La date et les heures ont bien été pris en compte !";
 
@@ -389,6 +395,12 @@ public class CalendarPlugin {
         return answer;
     }
 
+    /**
+     * Create the participants list and put in the first one
+     * 
+     * @param name
+     * @return 
+     */
     public String setRDVParticipant(String name) {
         String answer = "Le participant à été ajouté !";
         ArrayList<String> p = new ArrayList<String>();
@@ -397,18 +409,35 @@ public class CalendarPlugin {
         return answer;
     }
 
+    /**
+     * Function which add participant on the arraylist for a new meetings
+     * 
+     * @param name
+     * @return 
+     */
     public String addRDVParticipant(String name) {
         String answer = "Le participant à été ajouté !";
         listCal.get(listCal.size() - 1).setOneParticipant(name);
         return answer;
     }
 
+    /**
+     * Save a new meeting place in the arraylist
+     * 
+     * @param lieu
+     * @return 
+     */
     public String setRDVLieu(String lieu) {
         String answer = "Le lieu à été ajouté !";
         listCal.get(listCal.size() - 1).setLieu(lieu);
         return answer;
     }
 
+    /**
+     * Function which write the new meetings in the CSV file
+     * @param msg
+     * @return 
+     */
     public String writeCSV(String msg) {
         String answer = "L'evenement a été ajouté !";
         
