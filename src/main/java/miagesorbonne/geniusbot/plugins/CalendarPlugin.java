@@ -1,8 +1,10 @@
 package miagesorbonne.geniusbot.plugins;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -347,19 +349,17 @@ public class CalendarPlugin {
      * @return
      */
     public String setRDVTitre(String titre) {
-        String answer = "ok";
+        String answer = "Le titre à été ajouté !";
         listCal.add(new Calendars());
         listCal.get(listCal.size() - 1).setTitre(titre);
-        System.out.println("sdfsdfsdfsdfsfd");
         return answer;
     }
 
-    //19/03/2014 de 9:00 a 10:00
     public String setRDVDate(String message) {
-        String answer = "";
+        String answer = "La date et les heures ont bien été pris en compte !";
 
         String[] msg = message.split(" ");
-     
+
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         String hDeb = msg[0] + " " + msg[2];
         Date heureDeb = null;
@@ -371,7 +371,7 @@ public class CalendarPlugin {
         } catch (ParseException ex) {
             Logger.getLogger(CalendarPlugin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         String hFin = msg[0] + " " + msg[4];
         Date heureFin = null;
         Calendar cFin = Calendar.getInstance();
@@ -389,17 +389,53 @@ public class CalendarPlugin {
         return answer;
     }
 
-    public String setRDVParticipant(String message) {
-        String answer = "";
+    public String setRDVParticipant(String name) {
+        String answer = "Le participant à été ajouté !";
         ArrayList<String> p = new ArrayList<String>();
-        p.add(message);
+        p.add(name);
         listCal.get(listCal.size() - 1).setParticipants(p);
         return answer;
     }
 
+    public String addRDVParticipant(String name) {
+        String answer = "Le participant à été ajouté !";
+        listCal.get(listCal.size() - 1).setOneParticipant(name);
+        return answer;
+    }
+
     public String setRDVLieu(String lieu) {
-        String answer = "";
+        String answer = "Le lieu à été ajouté !";
         listCal.get(listCal.size() - 1).setLieu(lieu);
+        return answer;
+    }
+
+    public String writeCSV(String msg) {
+        String answer = "L'evenement a été ajouté !";
+        
+        String titre = listCal.get(listCal.size() - 1).getTitre();
+        String date = listCal.get(listCal.size() - 1).getDate();
+        String heureDeb = listCal.get(listCal.size() - 1).getHeureDeb();
+        String heureFin = listCal.get(listCal.size() - 1).getHeureFin();
+        String lieu = listCal.get(listCal.size() - 1).getLieu();
+        String part = "";
+        for(int i=0;i<listCal.get(listCal.size() - 1).getParticipants().size();i++) {
+            if(i!=0) {
+               part += "-"; 
+            }
+            part += listCal.get(listCal.size() - 1).getParticipants().get(i);
+        }
+
+        String txt = titre + ";" + date + ";" + heureDeb + ";" + heureFin + ";" + part + ";" + lieu;
+        
+        BufferedWriter writer = null;
+        try {        
+            writer = new BufferedWriter(new FileWriter(csvFile,true));
+            writer.write("\r\n"+txt);
+            writer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(CalendarPlugin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
         return answer;
     }
 

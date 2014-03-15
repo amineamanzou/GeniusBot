@@ -50,7 +50,7 @@ public class Calendars {
         this.titre = "";
         this.debut = null;
         this.fin = null;
-        this.participants = null;
+        this.participants = new ArrayList<String>();
         this.lieu = null;
     }
 
@@ -71,6 +71,12 @@ public class Calendars {
 
     public void setParticipants(ArrayList<String> participants) {
         this.participants = participants;
+    }
+    
+    public void setOneParticipant(String name) {
+        if(!this.participants.isEmpty()) {
+            this.participants.add(name);
+        }
     }
 
     public void setLieu(String lieu) {
@@ -180,9 +186,9 @@ public class Calendars {
      */
     public String days(Calendar cal) {
         int dd = cal.get(Calendar.DATE);
-        int mm = cal.get(Calendar.MONTH);
+        int mm = cal.get(Calendar.MONTH)+1;
         int yy = cal.get(Calendar.YEAR);
-
+     
         return (dd + "/" + mm + "/" + yy);
     }
 }

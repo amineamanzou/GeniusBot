@@ -4,7 +4,7 @@
         <message>Salut, mon nom est Genius. Comment tu t'appelles ?</message>
         <keywords>
             <keyword target="2" variable="name">.*nom est ([a-zA-z]+).*</keyword>
-            <keyword target="2" variable="name">([a-zA-Z ]+)</keyword>
+            <keyword target="2" variable="name">([a-zA-Z]+)</keyword>
         </keywords>
     </Step>
 
@@ -100,7 +100,7 @@
         </keywords>
     </Step>
     
-     <Step id="9">
+    <Step id="9">
         <message>Tu es désagréable</message>
         <keywords>
             <keyword target="1">*</keyword>
@@ -114,12 +114,36 @@
         </keywords>
     </Step>
     <Step id="11">
-        <message>Quand aura lieu l'evenement et de quel heure a quel heure ?</message>
+        <message>Quand aura lieu l'evenement et de quel heure a quel heure ? (ex: ex: 19/03/2014 de 9:00 a 10:00)</message>
         <keywords>
-            <keyword className="CalendarPlugin" method="setRDVDate" variable="name" target="1">([a-zA-z]+)</keyword>
+            <keyword className="CalendarPlugin" method="setRDVDate" variable="name" target="12">([0-3][0-9]/(0[1-9]|1[0-2])/[0-9][0-9][0-9][0-9] de [0-9]*:[0-9]* a [0-9]*:[0-9]*)</keyword>
         </keywords>
     </Step>
-    
+    <Step id="12">
+        <message>Ou aura lieu l'evenement ?</message>
+        <keywords>
+            <keyword className="CalendarPlugin" method="setRDVLieu" variable="name" target="13">([a-zA-z]+)</keyword>
+        </keywords>
+    </Step>
+    <Step id="13">
+        <message>Qui y participera ?</message>
+        <keywords>
+            <keyword className="CalendarPlugin" method="setRDVParticipant" variable="name" target="14">([a-zA-z]+)</keyword>
+        </keywords>
+    </Step>
+    <Step id="14">
+        <message>Un autre participant ?</message>
+        <keywords>
+            <keyword target="15">oui</keyword>
+            <keyword className="CalendarPlugin" method="writeCSV" defaultArg="empty" target="1">non</keyword>
+        </keywords>
+    </Step>
+    <Step id="15">
+        <message>Quel est son nom ?</message>
+        <keywords>
+            <keyword className="CalendarPlugin" method="addRDVParticipant" variable="name" target="14">([a-zA-z]+)</keyword>
+        </keywords>
+    </Step>
     
     <MessagesInvalid>
         <message>Oups, je n'ai pas compris.</message>
