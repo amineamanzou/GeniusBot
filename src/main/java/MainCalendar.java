@@ -18,7 +18,7 @@ public class MainCalendar {
         System.out.println("Liste des evenements:\n");
         CalendarPlugin test = new CalendarPlugin();
         test.listCal();
-        System.out.println("\nQuestion programme journée : \n" + test.getProgrammeJournee("test"));
+        System.out.println("\nQuestion programme  journée : \n" + test.getProgrammeJournee("test"));
         System.out.println("Question heure : \n" + test.getHours("test"));
         System.out.println("\nQuestion prochain RDV : \n" + test.getNextRDV("test"));
         System.out.println("\nQuestion prochain rencontre : \n" + test.getNextMeeting("Test"));
